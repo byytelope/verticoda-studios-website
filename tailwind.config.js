@@ -15,12 +15,14 @@ module.exports = {
         },
         extend: {
             colors: {
-                text: "#263238",
-                primary: "#4FD1C5",
-                secondary: "#81E6D9",
+                text: "#2E2E2E",
+                mainGreen: "#20BF6B",
+                mainPurple: "#8D61FF",
+                secondaryGreen: "#26DE81",
+                secondaryPurple: "#C261FF",
             },
         },
     },
     variants: { borderStyle: ["responsive", "hover", "focus"] },
-    plugins: [],
+    plugins: [require("tailwindcss-textshadow")],
 };
