@@ -1,15 +1,14 @@
-import Navbar from "./Navbar";
 import Button from "@material-ui/core/Button";
+
+import Navbar from "./Navbar";
+import "../styles/header.css";
 
 export default function Home() {
     return (
-        <div
-            className="flex w-full"
-            style={{ backgroundImage: "linear-gradient(134deg, #C261FF 0%, #26DE81 100%)" }}
-        >
+        <div className="mainHeader">
             <Navbar />
             <div className="xl:px-72 px-12">
-                <div className="py-8 pt-32 text-6xl font-bold text-white tracking-wide leading-snug text-shadow-lg">
+                <div className="py-8 pt-32 text-6xl font-bold text-white tracking-wide leading-snug text-shadow-md">
                     Marketing
                     <br />
                     Web Development
@@ -34,3 +33,5 @@ export default function Home() {
         </div>
     );
 }
+
+// style={{ backgroundImage: "linear-gradient(134deg, #C261FF, #26DE81)" }}

@@ -18,6 +18,7 @@ export default createMuiTheme({
         MuiButton: {
             label: {
                 color: "#2E2E2E",
+                opacity: "69%",
                 padding: "1.25rem",
             },
             root: {
