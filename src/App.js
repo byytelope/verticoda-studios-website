@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import theme from "./styles/theme";
 import "./App.css";
 
@@ -20,7 +20,7 @@ export default function App() {
                         <Button
                             variant="outlined"
                             size="large"
-                            className="focus:outline-none h-12 shadow-lg"
+                            className="focus:outline-none h-12 shadow-md"
                             href="https://www.facebook.com/VerticodaStudios"
                             target="_blank"
                         >

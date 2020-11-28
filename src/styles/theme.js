@@ -22,12 +22,13 @@ export default createMuiTheme({
                 padding: "1.25rem",
             },
             root: {
-                borderRadius: 0,
+                borderRadius: 7,
                 minHeight: "4rem",
             },
             outlined: {
                 backdropFilter: "blur(5px)",
                 backgroundColor: "rgba(255,255,255,0.1)",
+                borderColor: "rgba(255,255,255,0)",
             },
         },
     },

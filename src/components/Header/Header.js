@@ -1,7 +1,6 @@
-import Button from "@material-ui/core/Button";
-
 import Navbar from "./Navbar";
-import "../styles/header.css";
+import HeaderButton from "./HeaderButton";
+import "../../styles/header.css";
 
 export default function Home() {
     return (
@@ -20,14 +19,7 @@ export default function Home() {
                     <br /> your customised marketing needs.
                 </p>
                 <div className="py-8 flex">
-                    <Button
-                        variant="outlined"
-                        size="large"
-                        className="focus:outline-none h-12 shadow-lg"
-                        href="tel:+9607821610"
-                    >
-                        CALL US NOW!
-                    </Button>
+                    <HeaderButton />
                 </div>
             </div>
         </div>
