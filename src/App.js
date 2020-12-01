@@ -20,7 +20,7 @@ export default function App() {
                         <Button
                             variant="outlined"
                             size="large"
-                            className="focus:outline-none h-12 shadow-md"
+                            className="focus:outline-none h-12 shadow-lg"
                             href="https://www.facebook.com/VerticodaStudios"
                             target="_blank"
                         >

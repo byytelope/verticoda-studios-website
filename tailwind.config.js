@@ -1,14 +1,6 @@
 module.exports = {
     darkMode: "media",
-    future: {
-        removeDeprecatedGapUtilities: true,
-        purgeLayersByDefault: true,
-    },
-    purge: {
-        mode: "layers",
-        layers: ["base", "components", "utilities"],
-        content: ["./src/App.js", "./src/components/*.js", "./src/pages/*.js"],
-    },
+    purge: ["./src/**/*.js"],
     theme: {
         fontFamily: {
             sans: ["Poppins", "sans-serif"],

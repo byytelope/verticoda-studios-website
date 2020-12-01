@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 export default function Navbar() {
+    const [isScrolling, setIsScrolling] = useState(false);
     const navBgAnimation = useAnimation();
     const navTextAnimation = useAnimation();
 
@@ -12,12 +13,14 @@ export default function Navbar() {
                     backgroundColor: "rgba(255,255,255,0)",
                     backdropFilter: "",
                 });
+                setIsScrolling(false);
             },
             final: () => {
                 navBgAnimation.start({
                     backgroundColor: "rgba(155,155,155,0.1)",
                     backdropFilter: "blur(10px)",
                 });
+                setIsScrolling(true);
             },
         };
 
@@ -53,12 +56,14 @@ export default function Navbar() {
 
     return (
         <motion.div
-            className="fixed flex flex-col w-full z-50 xl:px-72 px-12"
+            className={`fixed flex flex-col w-full z-50 xl:px-32 px-12 ${
+                isScrolling ? "shadow-md" : ""
+            } transition ease-out`}
             animate={navBgAnimation}
             transition={{ ease: "easeOut" }}
         >
             <motion.div
-                className={"text-xl items-center tracking-widest py-8 text-white"}
+                className={"text-xl items-center tracking-widest py-8 text-white text-shadow-md"}
                 animate={navTextAnimation}
                 transition={{ ease: "easeOut" }}
             >

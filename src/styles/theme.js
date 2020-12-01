@@ -17,18 +17,20 @@ export default createMuiTheme({
     overrides: {
         MuiButton: {
             label: {
-                color: "#2E2E2E",
-                opacity: "69%",
+                color: "rgba(0,0,0,0.5)",
+                opacity: "100%",
                 padding: "1.25rem",
+                fontSize: "1rem",
             },
             root: {
-                borderRadius: 7,
+                borderRadius: "0rem",
                 minHeight: "4rem",
             },
             outlined: {
                 backdropFilter: "blur(5px)",
                 backgroundColor: "rgba(255,255,255,0.1)",
-                borderColor: "rgba(255,255,255,0)",
+                borderColor: "rgba(0,0,0,0.3)",
+                borderWidth: "0.15rem",
             },
         },
     },
