@@ -1,34 +1,40 @@
 import { ThemeProvider } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
+import { useInView } from "react-intersection-observer";
 
+import Team from "./components/Team";
 import Header from "./components/Header/Header";
 import theme from "./styles/theme";
 import "./App.css";
 
 export default function App() {
+    const [servicesRef, servicesInView] = useInView({ threshold: 0.5 });
+    const [projectsRef, projectsInView] = useInView({ threshold: 0.5 });
+    const [teamRef, teamInView] = useInView({ threshold: 0.5 });
+
+    const refs = { projectsRef, servicesRef, teamRef };
+
+    const activeTab = () => {
+        if (servicesInView) {
+            return "services";
+        } else if (projectsInView) {
+            return "projects";
+        } else if (teamInView) {
+            return "team";
+        } else return null;
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <div className="App">
-                <Header />
-                <div className="">
-                    <div className="text-text font-bold text-7xl text-center leading-tight py-48">
-                        We're bringing
-                        <br />
-                        Customers
-                    </div>
-                    <div className="flex justify-center">
-                        <Button
-                            variant="outlined"
-                            size="large"
-                            className="focus:outline-none h-12 shadow-lg"
-                            href="https://www.facebook.com/VerticodaStudios"
-                            target="_blank"
-                        >
-                            FOLLOW US ON FACEBOOK
-                        </Button>
-                    </div>
-                    <div className="py-96" />
-                    <div className="py-96" />
+                <Header refs={refs} activeTab={activeTab()} />
+                <div ref={servicesRef} className="bg-blue-200">
+                    <Team />
+                </div>
+                <div ref={projectsRef} className="bg-blue-500">
+                    <Team />
+                </div>
+                <div ref={teamRef} className="bg-blue-800">
+                    <Team />
                 </div>
             </div>
         </ThemeProvider>

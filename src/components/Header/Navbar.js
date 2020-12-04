@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-export default function Navbar() {
+export default function Navbar({ refs, activeTab }) {
     const [isScrolling, setIsScrolling] = useState(false);
     const navBgAnimation = useAnimation();
     const navTextAnimation = useAnimation();
@@ -56,7 +56,7 @@ export default function Navbar() {
 
     return (
         <motion.div
-            className={`fixed flex flex-col w-full z-50 xl:px-32 px-12 ${
+            className={`fixed grid grid-cols-2 w-full z-50 2xl:px-32 px-12 ${
                 isScrolling ? "shadow-md" : ""
             } transition ease-out`}
             animate={navBgAnimation}
@@ -69,6 +69,54 @@ export default function Navbar() {
             >
                 <div className="font-bold">{"VERTICODA STUDIOS"}</div>
                 <div>{"BY VERTICODA"}</div>
+            </motion.div>
+            <motion.div
+                className="flex items-center justify-center space-x-20 text-white text-shadow-md text-lg"
+                animate={navTextAnimation}
+                transition={{ ease: "easeOut" }}
+            >
+                <div
+                    className={`cursor-pointer tracking-wide border-current ${
+                        activeTab === "services" ? "border-b" : ""
+                    }`}
+                    onClick={() => {
+                        refs.servicesRef && console.log(refs);
+                        window.scrollTo({
+                            behavior: "smooth",
+                            top: refs.servicesRef.offsetTop,
+                        });
+                    }}
+                >
+                    OUR&nbsp;SERVICES
+                </div>
+                <div
+                    className={`cursor-pointer tracking-wide border-current ${
+                        activeTab === "projects" ? "border-b" : ""
+                    }`}
+                    onClick={() =>
+                        refs.projectsRef &&
+                        window.scrollTo({
+                            behavior: "smooth",
+                            top: refs.projectsRef.offsetTop,
+                        })
+                    }
+                >
+                    PROJECTS
+                </div>
+                <div
+                    className={`cursor-pointer tracking-wide border-current ${
+                        activeTab === "team" ? "border-b" : ""
+                    }`}
+                    onClick={() =>
+                        refs.teamRef &&
+                        window.scrollTo({
+                            behavior: "smooth",
+                            top: refs.teamRef.offsetTop,
+                        })
+                    }
+                >
+                    MEET&nbsp;THE&nbsp;TEAM
+                </div>
             </motion.div>
         </motion.div>
     );

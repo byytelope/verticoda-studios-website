@@ -1,18 +1,18 @@
+import HeaderButton from "./HeaderButton";
 import HeaderCard from "./HeaderCard";
 import Navbar from "./Navbar";
-import HeaderButton from "./HeaderButton";
 import "../../styles/header.css";
 
-export default function Home() {
+export default function Header({ refs, activeTab }) {
     return (
         <div className="mainHeader">
-            <Navbar />
-            <div className="flex xl:px-32 px-12 pt-32">
+            <Navbar refs={refs} activeTab={activeTab} />
+            <div className="grid grid-cols-2 2xl:px-32 px-12 pt-32">
                 <div className="w-full pr-36">
-                    <div className="py-6 text-6xl font-bold text-white tracking-wide leading-snug text-shadow-md">
+                    <div className="py-6 text-6xl font-bold text-white tracking-normal leading-snug text-shadow-md">
                         Marketing
                         <br />
-                        Web Development
+                        Web&nbsp;Development
                         <br />
                         Photo/Video/Music
                     </div>
@@ -24,30 +24,8 @@ export default function Home() {
                         <HeaderButton />
                     </div>
                 </div>
-                <div className="w-full">
-                    <div className="absolute flex">
-                        <div className="self-start">
-                            <div
-                                className="p-32 bg-white bg-opacity-10 rounded-full"
-                                style={{ backdropFilter: "blur(10px)" }}
-                            />
-                        </div>
-                        <div className="self-end pl-8 pt-56">
-                            <div
-                                className="p-24 bg-white bg-opacity-10 rounded-full"
-                                style={{ backdropFilter: "blur(10px)" }}
-                            />
-                        </div>
-                        <div className="self-start pl-16 pt-16">
-                            <div
-                                className="p-20 bg-white bg-opacity-10 rounded-full"
-                                style={{ backdropFilter: "blur(10px)" }}
-                            />
-                        </div>
-                    </div>
-                    <div className="py-8 w-full">
-                        <HeaderCard />
-                    </div>
+                <div className="py-8 w-full hidden xl:flex">
+                    <HeaderCard />
                 </div>
             </div>
         </div>

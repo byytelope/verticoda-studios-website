@@ -23,13 +23,13 @@ export default createMuiTheme({
                 fontSize: "1rem",
             },
             root: {
-                borderRadius: "0rem",
+                borderRadius: "0.4rem",
                 minHeight: "4rem",
             },
             outlined: {
                 backdropFilter: "blur(5px)",
                 backgroundColor: "rgba(255,255,255,0.1)",
-                borderColor: "rgba(0,0,0,0.3)",
+                borderColor: "rgba(0,0,0,0.2)",
                 borderWidth: "0.15rem",
             },
         },
