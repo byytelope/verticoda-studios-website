@@ -15,6 +15,8 @@ module.exports = {
             },
         },
     },
-    variants: { borderStyle: ["responsive", "hover", "focus"] },
+    variants: {
+        borderStyle: ["responsive", "hover", "focus"],
+    },
     plugins: [require("tailwindcss-textshadow")],
 };

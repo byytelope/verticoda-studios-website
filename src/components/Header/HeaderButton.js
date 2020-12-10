@@ -18,7 +18,7 @@ export default function HeaderButton() {
             variant="outlined"
             size="large"
             classes={headerButtonStyles}
-            className="focus:outline-none h-12 shadow-lg"
+            className="focus:outline-none h-12 focus:ring-4 ring-white ring-opacity-10"
             href="tel:+9607821610"
         >
             CALL US NOW!

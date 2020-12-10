@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { useInView } from "react-intersection-observer";
 
@@ -7,9 +8,13 @@ import theme from "./styles/theme";
 import "./App.css";
 
 export default function App() {
-    const [servicesRef, servicesInView] = useInView({ threshold: 0.5 });
-    const [projectsRef, projectsInView] = useInView({ threshold: 0.5 });
-    const [teamRef, teamInView] = useInView({ threshold: 0.5 });
+    const [servicesInViewRef, servicesInView] = useInView({ threshold: 0.5 });
+    const [projectsInViewRef, projectsInView] = useInView({ threshold: 0.5 });
+    const [teamInViewRef, teamInView] = useInView({ threshold: 0.5 });
+
+    const projectsRef = useRef(null);
+    const servicesRef = useRef(null);
+    const teamRef = useRef(null);
 
     const refs = { projectsRef, servicesRef, teamRef };
 
@@ -27,14 +32,20 @@ export default function App() {
         <ThemeProvider theme={theme}>
             <div className="App">
                 <Header refs={refs} activeTab={activeTab()} />
-                <div ref={servicesRef} className="bg-blue-200">
-                    <Team />
+                <div ref={servicesRef}>
+                    <div ref={servicesInViewRef} className="border-b">
+                        <Team />
+                    </div>
                 </div>
-                <div ref={projectsRef} className="bg-blue-500">
-                    <Team />
+                <div ref={projectsRef}>
+                    <div ref={projectsInViewRef} className="border-b">
+                        <Team />
+                    </div>
                 </div>
-                <div ref={teamRef} className="bg-blue-800">
-                    <Team />
+                <div ref={teamRef}>
+                    <div ref={teamInViewRef} className="border-b">
+                        <Team />
+                    </div>
                 </div>
             </div>
         </ThemeProvider>

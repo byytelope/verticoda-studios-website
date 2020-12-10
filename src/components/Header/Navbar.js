@@ -11,7 +11,7 @@ export default function Navbar({ refs, activeTab }) {
             initial: () => {
                 navBgAnimation.start({
                     backgroundColor: "rgba(255,255,255,0)",
-                    backdropFilter: "",
+                    backdropFilter: "blur(0px)",
                 });
                 setIsScrolling(false);
             },
@@ -56,8 +56,8 @@ export default function Navbar({ refs, activeTab }) {
 
     return (
         <motion.div
-            className={`fixed grid grid-cols-2 w-full z-50 2xl:px-32 px-12 ${
-                isScrolling ? "shadow-md" : ""
+            className={`fixed grid grid-cols-2 w-full z-50 2xl:px-32 px-12 border-b-2 border-black border-opacity-0 ${
+                isScrolling ? "border-opacity-10" : ""
             } transition ease-out`}
             animate={navBgAnimation}
             transition={{ ease: "easeOut" }}
@@ -67,11 +67,11 @@ export default function Navbar({ refs, activeTab }) {
                 animate={navTextAnimation}
                 transition={{ ease: "easeOut" }}
             >
-                <div className="font-bold">{"VERTICODA STUDIOS"}</div>
-                <div>{"BY VERTICODA"}</div>
+                <div className="font-bold">VERTICODA&nbsp;STUDIOS</div>
+                <div>BY&nbsp;VERTICODA</div>
             </motion.div>
             <motion.div
-                className="flex items-center justify-center space-x-20 text-white text-shadow-md text-lg"
+                className="items-center justify-center space-x-20 text-white text-shadow-md text-lg pr-16 xl:pr-0 hidden xl:flex"
                 animate={navTextAnimation}
                 transition={{ ease: "easeOut" }}
             >
@@ -80,10 +80,10 @@ export default function Navbar({ refs, activeTab }) {
                         activeTab === "services" ? "border-b" : ""
                     }`}
                     onClick={() => {
-                        refs.servicesRef && console.log(refs);
+                        refs.servicesRef.current && console.log(refs);
                         window.scrollTo({
                             behavior: "smooth",
-                            top: refs.servicesRef.offsetTop,
+                            top: refs.servicesRef.current.offsetTop,
                         });
                     }}
                 >
@@ -94,10 +94,10 @@ export default function Navbar({ refs, activeTab }) {
                         activeTab === "projects" ? "border-b" : ""
                     }`}
                     onClick={() =>
-                        refs.projectsRef &&
+                        refs.projectsRef.current &&
                         window.scrollTo({
                             behavior: "smooth",
-                            top: refs.projectsRef.offsetTop,
+                            top: refs.projectsRef.current.offsetTop,
                         })
                     }
                 >
@@ -108,16 +108,21 @@ export default function Navbar({ refs, activeTab }) {
                         activeTab === "team" ? "border-b" : ""
                     }`}
                     onClick={() =>
-                        refs.teamRef &&
+                        refs.teamRef.current &&
                         window.scrollTo({
                             behavior: "smooth",
-                            top: refs.teamRef.offsetTop,
+                            top: refs.teamRef.current.offsetTop,
                         })
                     }
                 >
                     MEET&nbsp;THE&nbsp;TEAM
                 </div>
             </motion.div>
+            <motion.div
+                className="text-white pr-16"
+                animate={navTextAnimation}
+                transition={{ ease: "easeOut" }}
+            ></motion.div>
         </motion.div>
     );
 }
