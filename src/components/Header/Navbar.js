@@ -1,10 +1,42 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import Lottie from "lottie-react";
+
+import menuAnimationLight from "../../assets/lottie/MenuLight.json";
+import menuAnimationDark from "../../assets/lottie/MenuDark.json";
 
 export default function Navbar({ refs, activeTab }) {
     const [isScrolling, setIsScrolling] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     const navBgAnimation = useAnimation();
     const navTextAnimation = useAnimation();
+    const lottieRefDark = useRef();
+    const lottieRefLight = useRef();
+
+    const lottieStyle = {
+        height: 65,
+        width: 65,
+    };
+
+    const lottieOptions = {
+        loop: false,
+        autoplay: false,
+        style: lottieStyle,
+    };
+
+    const handleMenuClick = () => {
+        if (lottieRefDark.current && lottieRefLight.current) {
+            if (menuOpen) {
+                lottieRefDark.current.playSegments([30, 0], true);
+                lottieRefLight.current.playSegments([30, 0], true);
+                setMenuOpen(false);
+            } else if (!menuOpen) {
+                lottieRefDark.current.playSegments([0, 30], true);
+                lottieRefLight.current.playSegments([0, 30], true);
+                setMenuOpen(true);
+            }
+        }
+    };
 
     useEffect(() => {
         const navBgAnim = {
@@ -76,8 +108,8 @@ export default function Navbar({ refs, activeTab }) {
                 transition={{ ease: "easeOut" }}
             >
                 <div
-                    className={`cursor-pointer tracking-wide border-current ${
-                        activeTab === "services" ? "border-b" : ""
+                    className={`cursor-pointer tracking-wider font-semibold border-current ${
+                        activeTab === "services" ? "border-b-2" : ""
                     }`}
                     onClick={() => {
                         refs.servicesRef.current && console.log(refs);
@@ -90,8 +122,8 @@ export default function Navbar({ refs, activeTab }) {
                     OUR&nbsp;SERVICES
                 </div>
                 <div
-                    className={`cursor-pointer tracking-wide border-current ${
-                        activeTab === "projects" ? "border-b" : ""
+                    className={`cursor-pointer tracking-wider font-semibold border-current ${
+                        activeTab === "projects" ? "border-b-2" : ""
                     }`}
                     onClick={() =>
                         refs.projectsRef.current &&
@@ -104,8 +136,8 @@ export default function Navbar({ refs, activeTab }) {
                     PROJECTS
                 </div>
                 <div
-                    className={`cursor-pointer tracking-wide border-current ${
-                        activeTab === "team" ? "border-b" : ""
+                    className={`cursor-pointer tracking-wider font-semibold border-current ${
+                        activeTab === "team" ? "border-b-2" : ""
                     }`}
                     onClick={() =>
                         refs.teamRef.current &&
@@ -118,11 +150,26 @@ export default function Navbar({ refs, activeTab }) {
                     MEET&nbsp;THE&nbsp;TEAM
                 </div>
             </motion.div>
-            <motion.div
-                className="text-white pr-16"
-                animate={navTextAnimation}
-                transition={{ ease: "easeOut" }}
-            ></motion.div>
+            <div className="flex xl:hidden justify-end -mr-7 my-7" onClick={() => handleMenuClick()}>
+                <div
+                    className={`absolute z-10 transition-opacity ${
+                        isScrolling ? "opacity-100" : "opacity-0"
+                    }`}
+                >
+                    <Lottie
+                        {...lottieOptions}
+                        animationData={menuAnimationDark}
+                        lottieRef={lottieRefDark}
+                    />
+                </div>
+                <div className="absolute z-0">
+                    <Lottie
+                        {...lottieOptions}
+                        animationData={menuAnimationLight}
+                        lottieRef={lottieRefLight}
+                    />
+                </div>
+            </div>
         </motion.div>
     );
 }

@@ -3,10 +3,11 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
     label: {
-        color: "#FFF",
+        color: "rgba(255,255,255,1)",
     },
     root: {
         borderColor: "rgba(255,255,255,0.15)",
+        // borderColor: "rgba(0,0,0,0.1)",
     },
 });
 

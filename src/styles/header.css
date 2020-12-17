@@ -1,4 +1,5 @@
 .mainHeader {
+    display: flex;
     background: linear-gradient(125deg, #c261ff, #26de81);
     background-size: 250% 250%;
     animation: headerBgAnimation 15s ease infinite;

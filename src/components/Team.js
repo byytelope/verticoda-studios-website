@@ -2,7 +2,7 @@ import { Button } from "@material-ui/core";
 
 export default function Team() {
     return (
-        <div className="py-56">
+        <div className="py-56 h-screen">
             <div className="text-text font-bold text-7xl text-center leading-tight py-28">
                 We're bringing
                 <br />
