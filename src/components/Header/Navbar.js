@@ -108,7 +108,7 @@ export default function Navbar({ refs, activeTab }) {
                 transition={{ ease: "easeOut" }}
             >
                 <div
-                    className={`cursor-pointer tracking-wider font-semibold border-current ${
+                    className={`cursor-pointer tracking-wider font-medium border-current ${
                         activeTab === "services" ? "border-b-2" : ""
                     }`}
                     onClick={() => {
@@ -122,7 +122,7 @@ export default function Navbar({ refs, activeTab }) {
                     OUR&nbsp;SERVICES
                 </div>
                 <div
-                    className={`cursor-pointer tracking-wider font-semibold border-current ${
+                    className={`cursor-pointer tracking-wider font-medium border-current ${
                         activeTab === "projects" ? "border-b-2" : ""
                     }`}
                     onClick={() =>
@@ -136,7 +136,7 @@ export default function Navbar({ refs, activeTab }) {
                     PROJECTS
                 </div>
                 <div
-                    className={`cursor-pointer tracking-wider font-semibold border-current ${
+                    className={`cursor-pointer tracking-wider font-medium border-current ${
                         activeTab === "team" ? "border-b-2" : ""
                     }`}
                     onClick={() =>
