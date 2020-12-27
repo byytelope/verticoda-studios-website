@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 
 import Team from "./components/Team";
 import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar";
 import theme from "./styles/theme";
 import "./App.css";
 
@@ -31,7 +32,8 @@ export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <div className="App">
-                <Header refs={refs} activeTab={activeTab()} />
+                <Navbar refs={refs} activeTab={activeTab()} />
+                <Header />
                 <div ref={servicesRef}>
                     <div ref={servicesInViewRef} className="border-b">
                         <Team />
