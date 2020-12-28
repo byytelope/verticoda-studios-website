@@ -1,6 +1,19 @@
+import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 import { unstable_createMuiStrictModeTheme as createMuiTheme } from "@material-ui/core/styles";
 
-export default createMuiTheme({
+const breakpoints = createBreakpoints({});
+
+const theme = createMuiTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 640,
+            md: 768,
+            lg: 1024,
+            xl: 1280,
+            xl2: 1536,
+        },
+    },
     palette: {
         primary: {
             main: "#8D61FF",
@@ -21,10 +34,24 @@ export default createMuiTheme({
                 opacity: "100%",
                 padding: "1.25rem",
                 fontSize: "1rem",
+                [breakpoints.between("sm", "md")]: {
+                    padding: "1.75rem",
+                    fontSize: "1.5rem",
+                },
+                [breakpoints.down("sm")]: {
+                    padding: "2.5rem",
+                    fontSize: "6rem",
+                },
             },
             root: {
-                borderRadius: "0.4rem",
+                borderRadius: "0.75rem",
                 minHeight: "4rem",
+                [breakpoints.between("sm", "md")]: {
+                    minHeight: "6rem",
+                },
+                [breakpoints.down("sm")]: {
+                    minHeight: "7rem",
+                },
             },
             outlined: {
                 backdropFilter: "blur(5px)",
@@ -35,3 +62,5 @@ export default createMuiTheme({
         },
     },
 });
+
+export default theme;

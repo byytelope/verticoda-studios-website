@@ -1,7 +1,7 @@
 export default function HeaderCard() {
     return (
         <div
-            className="flex flex-col justify-between rounded-lg w-full bg-gray-300 bg-opacity-20 ring-1 ring-inset ring-opacity-10 ring-white"
+            className="flex flex-col justify-between rounded-xl w-full bg-gray-300 bg-opacity-20 ring-1 ring-inset ring-opacity-10 ring-white"
             style={{ backdropFilter: "blur(10px)" }}
         >
             <div className="w-full flex pt-6 xl:pt-4 pb-5 xl:pb-3 px-6 xl:px-4">

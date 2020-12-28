@@ -5,7 +5,7 @@ const Path = (props) => (
         strokeWidth="3"
         strokeLinecap="round"
         {...props}
-        style={{ transition: "stroke .25s easeOut" }}
+        style={{ transition: "stroke .25s ease-out" }}
     />
 );
 
