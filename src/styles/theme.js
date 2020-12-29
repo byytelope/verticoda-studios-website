@@ -54,7 +54,6 @@ const theme = createMuiTheme({
                 },
             },
             outlined: {
-                backdropFilter: "blur(5px)",
                 backgroundColor: "rgba(50,50,50,.05)",
                 borderColor: "rgba(0,0,0,0.1)",
                 borderWidth: "1px",

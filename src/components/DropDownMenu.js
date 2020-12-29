@@ -9,7 +9,7 @@ export default function DropDownMenu({
         <div
             className={`${
                 menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            } flex-col text-4xl text-text tracking-widest leading-loose text-shadow-md space-y-16 py-24 transition duration-300 ease-out`}
+            } flex-col text-4xl text-text tracking-widest leading-loose text-shadow-md space-y-16 py-24 transition duration-500 ease-out`}
         >
             <div
                 className={`cursor-pointer border-b-2 ${
@@ -29,7 +29,7 @@ export default function DropDownMenu({
             <div
                 className={`cursor-pointer border-b-2 ${
                     activeTab === "projects" ? "border-current" : "border-transparent"
-                } transition-all duration-200 ease-out`}
+                } transition-all duration-500 ease-out`}
                 onClick={() => {
                     refs.projectsRef.current &&
                         window.scrollTo({
@@ -44,7 +44,7 @@ export default function DropDownMenu({
             <div
                 className={`cursor-pointer border-b-2 ${
                     activeTab === "team" ? "border-current" : "border-transparent"
-                } transition-all duration-200 ease-out`}
+                } transition-all duration-500 ease-out`}
                 onClick={() => {
                     refs.teamRef.current &&
                         window.scrollTo({

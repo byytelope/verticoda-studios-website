@@ -15,13 +15,13 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
             initial: () => {
                 navBgAnimation.start({
                     backgroundColor: "rgba(255,255,255,0)",
-                    backdropFilter: "blur(0px)",
+                    // backdropFilter: "blur(0px)",
                 });
             },
             final: () => {
                 navBgAnimation.start({
                     backgroundColor: "rgba(155,155,155,0.1)",
-                    backdropFilter: "blur(10px)",
+                    // backdropFilter: "blur(10px)",
                 });
             },
         };
@@ -73,11 +73,15 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
     return (
         <div>
             <motion.div
-                className={`fixed flex flex-col w-full z-50 transition duration-200 ease-out 2xl:px-36 px-12 md:py-2 xl:py-4 border-b-2 border-black border-opacity-0 ${
+                className={`fixed flex flex-col w-full z-50 transition-all duration-200 ease-out 2xl:px-36 px-12 md:py-2 xl:py-4 border-b-2 border-black border-opacity-0 ${
                     isScrolling || menuOpen ? "border-opacity-10" : ""
                 }`}
                 animate={navBgAnimation}
                 transition={{ ease: "easeOut" }}
+                style={{
+                    backdropFilter: isScrolling || menuOpen ? "blur(10px)" : "blur(0px)",
+                    WebkitBackdropFilter: isScrolling || menuOpen ? "blur(10px)" : "blur(0px)",
+                }}
             >
                 <div className="grid grid-cols-2 w-full">
                     <motion.div
