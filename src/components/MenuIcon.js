@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 const Path = (props) => (
     <motion.path
-        strokeWidth="3"
-        strokeLinecap="round"
+        strokeWidth="2.5"
+        strokeLinecap="square"
         {...props}
         style={{ transition: "stroke .25s ease-out" }}
     />
@@ -16,7 +16,7 @@ export function MenuIcon({ stroke }) {
             width="100%"
             viewBox="0 0 23 23"
             style={{
-                filter: "drop-shadow(0rem 0.2rem 0.11rem rgba(0, 0, 0, 0.15))",
+                filter: "drop-shadow(0rem 0.15rem 0.12rem rgba(0, 0, 0, 0.15))",
             }}
         >
             <Path

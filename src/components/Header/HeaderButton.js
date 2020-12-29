@@ -6,8 +6,8 @@ const useStyles = makeStyles({
         color: "rgba(255,255,255,1)",
     },
     root: {
-        borderColor: "rgba(255,255,255,0.15)",
-        // borderColor: "rgba(0,0,0,0.1)",
+        borderColor: "rgba(255,255,255,0.2)",
+        backgroundColor: "rgba(255,255,255,0.1)"
     },
 });
 
@@ -19,7 +19,7 @@ export default function HeaderButton() {
             variant="outlined"
             size="large"
             classes={headerButtonStyles}
-            className="focus:outline-none h-12 focus:ring-4 ring-white ring-opacity-10"
+            className="focus:outline-none h-12 focus:ring-4 ring-white ring-opacity-5"
             href="tel:+9607821610"
         >
             CALL US NOW!

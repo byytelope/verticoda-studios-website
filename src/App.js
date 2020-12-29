@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { useCycle } from "framer-motion";
@@ -11,6 +11,7 @@ import theme from "./styles/theme";
 import "./App.css";
 
 export default function App() {
+    const [targetElement, setTargetElement] = useState(null);
     const [menuOpen, toggleMenuOpen] = useCycle(false, true);
     const [servicesInViewRef, servicesInView] = useInView({ threshold: 0.5 });
     const [projectsInViewRef, projectsInView] = useInView({ threshold: 0.5 });
@@ -33,11 +34,15 @@ export default function App() {
         } else return null;
     };
 
-    if (menuOpen) {
-        disableBodyScroll(navRef.current);
-    } else if (!menuOpen) {
-        enableBodyScroll(navRef.current);
-    }
+    useEffect(() => {
+        setTargetElement(navRef.current);
+
+        if (menuOpen) {
+            disableBodyScroll(targetElement);
+        } else if (!menuOpen) {
+            enableBodyScroll(targetElement);
+        }
+    }, [menuOpen, targetElement]);
 
     return (
         <ThemeProvider theme={theme}>

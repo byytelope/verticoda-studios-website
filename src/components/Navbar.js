@@ -3,6 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import IconButton from "@material-ui/core/IconButton";
 
 import { MenuIcon } from "./MenuIcon";
+import DropDownMenu from "./DropDownMenu";
 
 export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
     const [isScrolling, setIsScrolling] = useState(false);
@@ -72,9 +73,9 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
     return (
         <div>
             <motion.div
-                className={`fixed flex flex-col w-full z-50 2xl:px-32 px-12 md:py-2 xl:py-4 border-b-2 border-black border-opacity-0 ${
+                className={`fixed flex flex-col w-full z-50 transition duration-200 ease-out 2xl:px-36 px-12 md:py-2 xl:py-4 border-b-2 border-black border-opacity-0 ${
                     isScrolling || menuOpen ? "border-opacity-10" : ""
-                } transition ease-out`}
+                }`}
                 animate={navBgAnimation}
                 transition={{ ease: "easeOut" }}
             >
@@ -90,7 +91,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                         <p>BY&nbsp;VERTICODA</p>
                     </motion.div>
                     <motion.div
-                        className="items-center justify-center space-x-24 text-white tracking-wider font-medium text-shadow-md text-lg pr-16 xl:pr-0 hidden xl:flex"
+                        className="items-center justify-end space-x-24 text-white tracking-wider font-medium text-shadow-md text-lg pr-16 xl:pr-0 hidden xl:flex"
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
                     >
@@ -155,57 +156,17 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                     </motion.div>
                 </div>
                 <motion.div
-                    className={`${
-                        menuOpen ? "flex" : "hidden"
-                    } flex-col text-4xl text-white tracking-widest leading-loose text-shadow-md space-y-16 py-24`}
-                    animate={navTextAnimation}
-                    transition={{ ease: "easeOut" }}
+                    animate={menuOpen ? { height: "auto" } : { height: 0 }}
+                    layout
+                    transition={{ type: "spring", stiffness: 100, damping: 20 }}
                 >
-                    <div
-                        className={`cursor-pointer border-b-2 ${
-                            activeTab === "services" ? "border-current" : "border-transparent"
-                        } transition-all duration-200 ease-out`}
-                        onClick={() => {
-                            refs.servicesRef.current &&
-                                window.scrollTo({
-                                    behavior: "smooth",
-                                    top: refs.servicesRef.current.offsetTop,
-                                });
-                            toggleMenuOpen(false);
-                        }}
-                    >
-                        OUR&nbsp;SERVICES
-                    </div>
-                    <div
-                        className={`cursor-pointer border-b-2 ${
-                            activeTab === "projects" ? "border-current" : "border-transparent"
-                        } transition-all duration-200 ease-out`}
-                        onClick={() => {
-                            refs.projectsRef.current &&
-                                window.scrollTo({
-                                    behavior: "smooth",
-                                    top: refs.projectsRef.current.offsetTop,
-                                });
-                            toggleMenuOpen(false);
-                        }}
-                    >
-                        PROJECTS
-                    </div>
-                    <div
-                        className={`cursor-pointer border-b-2 ${
-                            activeTab === "team" ? "border-current" : "border-transparent"
-                        } transition-all duration-200 ease-out`}
-                        onClick={() => {
-                            refs.teamRef.current &&
-                                window.scrollTo({
-                                    behavior: "smooth",
-                                    top: refs.teamRef.current.offsetTop,
-                                });
-                            toggleMenuOpen(false);
-                        }}
-                    >
-                        MEET&nbsp;THE&nbsp;TEAM
-                    </div>
+                    <DropDownMenu
+                        activeTab={activeTab}
+                        refs={refs}
+                        menuOpen={menuOpen}
+                        toggleMenuOpen={toggleMenuOpen}
+                        navTextAnimation={navTextAnimation}
+                    />
                 </motion.div>
             </motion.div>
             <div
