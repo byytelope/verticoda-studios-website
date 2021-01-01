@@ -3,12 +3,12 @@ import { Button } from "@material-ui/core";
 export default function Team() {
     return (
         <div className="py-56 xl:h-screen">
-            <div className="text-text font-bold text-7xl text-center leading-tight py-28">
+            <div className="text-text font-bold text-7xl text-center leading-tight">
                 We're bringing
                 <br />
                 Customers
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-24">
                 <Button
                     variant="outlined"
                     size="large"
