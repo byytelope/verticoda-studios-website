@@ -32,7 +32,7 @@ const theme = createMuiTheme({
             label: {
                 color: "rgba(0,0,0,0.5)",
                 opacity: "100%",
-                padding: "1.25rem",
+                padding: "1.5rem",
                 fontSize: "1rem",
                 [breakpoints.between("sm", "md")]: {
                     padding: "2rem",
@@ -45,7 +45,7 @@ const theme = createMuiTheme({
             },
             root: {
                 borderRadius: "0rem",
-                minHeight: "4rem",
+                minHeight: "5rem",
                 [breakpoints.between("sm", "md")]: {
                     minHeight: "6rem",
                 },

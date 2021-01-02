@@ -73,14 +73,14 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
     return (
         <div>
             <motion.div
-                className={`fixed flex flex-col w-full z-50 transition-all duration-200 ease-out xl:px-24 2xl:px-36 px-12 md:py-2 2xl:py-4 border-b-2 border-black border-opacity-0  ${
-                    isScrolling || menuOpen ? "border-opacity-10" : ""
+                className={`fixed flex flex-col w-full z-50 transition-all duration-200 ease-out xl:px-24 2xl:px-36 px-12 md:py-2 2xl:py-4 ${
+                    isScrolling || menuOpen ? "shadow-md" : ""
                 }`}
                 animate={navBgAnimation}
                 transition={{ ease: "easeOut" }}
                 style={{
-                    backdropFilter: isScrolling || menuOpen ? "blur(10px)" : "blur(0px)",
-                    WebkitBackdropFilter: isScrolling || menuOpen ? "blur(10px)" : "blur(0px)",
+                    backdropFilter: isScrolling || menuOpen ? "blur(15px)" : "blur(0px)",
+                    WebkitBackdropFilter: isScrolling || menuOpen ? "blur(15px)" : "blur(0px)",
                 }}
             >
                 <div className="grid grid-cols-2 w-full">
