@@ -95,12 +95,20 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                         <p>BY&nbsp;VERTICODA</p>
                     </motion.div>
                     <motion.div
-                        className="items-center justify-end space-x-20 text-white tracking-widest font-medium text-shadow-md text-lg pr-16 xl:pr-0 hidden xl:flex"
+                        className={`items-center justify-end text-white tracking-widest font-medium text-shadow-md pr-16 xl:pr-0 hidden xl:flex ${
+                            isScrolling ? "space-x-12" : "space-x-20"
+                        }`}
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
                     >
                         <motion.div
-                            className="cursor-pointer transition-all duration-200 ease-out"
+                            className={`cursor-pointer transition-all duration-200 ease-out ${
+                                activeTab === "services"
+                                    ? "text-xl font-bold"
+                                    : isScrolling
+                                    ? "text-base"
+                                    : "text-lg"
+                            }`}
                             onClick={() => {
                                 refs.servicesRef.current &&
                                     window.scrollTo({
@@ -108,18 +116,17 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                                         top: refs.servicesRef.current.offsetTop,
                                     });
                             }}
-                            animate={
-                                activeTab === "services"
-                                    ? { fontSize: "1.25rem", fontWeight: "bold" }
-                                    : isScrolling
-                                    ? { fontSize: "1rem" }
-                                    : { fontSize: "1.125rem" }
-                            }
                         >
                             OUR&nbsp;SERVICES
                         </motion.div>
                         <motion.div
-                            className="cursor-pointer transition-all duration-200 ease-out"
+                            className={`cursor-pointer transition-all duration-200 ease-out ${
+                                activeTab === "projects"
+                                    ? "text-xl font-bold"
+                                    : isScrolling
+                                    ? "text-base"
+                                    : "text-lg"
+                            }`}
                             onClick={() => {
                                 refs.projectsRef.current &&
                                     window.scrollTo({
@@ -127,18 +134,17 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                                         top: refs.projectsRef.current.offsetTop,
                                     });
                             }}
-                            animate={
-                                activeTab === "projects"
-                                    ? { fontSize: "1.25rem", fontWeight: "bold" }
-                                    : isScrolling
-                                    ? { fontSize: "1rem" }
-                                    : { fontSize: "1.125rem" }
-                            }
                         >
                             PROJECTS
                         </motion.div>
                         <motion.div
-                            className="cursor-pointer transition-all duration-200 ease-out"
+                            className={`cursor-pointer transition-all duration-200 ease-out ${
+                                activeTab === "team"
+                                    ? "text-xl font-bold"
+                                    : isScrolling
+                                    ? "text-base"
+                                    : "text-lg"
+                            }`}
                             onClick={() => {
                                 refs.teamRef.current &&
                                     window.scrollTo({
@@ -146,13 +152,6 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                                         top: refs.teamRef.current.offsetTop,
                                     });
                             }}
-                            animate={
-                                activeTab === "team"
-                                    ? { fontSize: "1.25rem", fontWeight: "bold" }
-                                    : isScrolling
-                                    ? { fontSize: "1rem" }
-                                    : { fontSize: "1.125rem" }
-                            }
                         >
                             MEET&nbsp;THE&nbsp;TEAM
                         </motion.div>
