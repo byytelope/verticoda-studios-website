@@ -12,7 +12,7 @@ export default function Team() {
                 <Button
                     variant="outlined"
                     size="large"
-                    className="focus:outline-none h-12 focus:ring-4 ring-black ring-opacity-10"
+                    className="focus:outline-none h-12 focus:ring-4 ring-black ring-opacity-5 shadow-md"
                     href="https://www.facebook.com/VerticodaStudios"
                     target="_blank"
                 >

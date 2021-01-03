@@ -1,5 +1,5 @@
 import HeaderButton from "./HeaderButton";
-import HeaderIcons from "./HeaderIcons";
+// import HeaderIcons from "./HeaderIcons";
 import "../../styles/header.css";
 
 export default function Header() {
@@ -22,7 +22,7 @@ export default function Header() {
                 </div>
             </div>
             <div className="pt-24 xl:pt-16 w-full h-full pl-36">
-                <HeaderIcons />
+                {/* <HeaderIcons /> */}
             </div>
         </div>
     );

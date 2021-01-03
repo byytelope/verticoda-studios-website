@@ -4,9 +4,10 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { useCycle } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import Team from "./components/Team";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar";
+import Services from "./components/Services";
+import Team from "./components/Team";
 import theme from "./styles/theme";
 import "./App.css";
 
@@ -58,19 +59,21 @@ export default function App() {
                 <div>
                     <Header />
                 </div>
-                <div ref={servicesRef}>
-                    <div ref={servicesInViewRef} className="border-b">
-                        <Team />
+                <div className="xl:px-24 2xl:px-36 px-12">
+                    <div ref={servicesRef}>
+                        <div ref={servicesInViewRef} className="border-b">
+                            <Services />
+                        </div>
                     </div>
-                </div>
-                <div ref={projectsRef}>
-                    <div ref={projectsInViewRef} className="border-b">
-                        <Team />
+                    <div ref={projectsRef}>
+                        <div ref={projectsInViewRef} className="border-b">
+                            <Team />
+                        </div>
                     </div>
-                </div>
-                <div ref={teamRef}>
-                    <div ref={teamInViewRef} className="border-b">
-                        <Team />
+                    <div ref={teamRef}>
+                        <div ref={teamInViewRef} className="border-b">
+                            <Team />
+                        </div>
                     </div>
                 </div>
             </div>

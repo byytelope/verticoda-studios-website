@@ -20,7 +20,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
             },
             final: () => {
                 navBgAnimation.start({
-                    backgroundColor: "rgba(155,155,155,0.1)",
+                    backgroundColor: "rgba(200,200,200,0.1)",
                     // backdropFilter: "blur(10px)",
                 });
             },

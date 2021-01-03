@@ -34,6 +34,7 @@ const theme = createMuiTheme({
                 opacity: "100%",
                 padding: "1.5rem",
                 fontSize: "1rem",
+                letterSpacing: "0.1rem",
                 [breakpoints.between("sm", "md")]: {
                     padding: "2rem",
                     fontSize: "1.5rem",
@@ -44,7 +45,7 @@ const theme = createMuiTheme({
                 },
             },
             root: {
-                borderRadius: "0rem",
+                borderRadius: "0.75rem",
                 minHeight: "5rem",
                 [breakpoints.between("sm", "md")]: {
                     minHeight: "6rem",
@@ -54,7 +55,7 @@ const theme = createMuiTheme({
                 },
             },
             outlined: {
-                backgroundColor: "rgba(50,50,50,.05)",
+                backgroundColor: "rgba(50,50,50,0)",
                 borderColor: "rgba(0,0,0,0.1)",
                 borderWidth: "1px",
             },
