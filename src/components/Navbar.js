@@ -96,7 +96,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                     </motion.div>
                     <motion.div
                         className={`items-center justify-end text-white tracking-widest font-medium text-shadow-md pr-16 xl:pr-0 hidden xl:flex ${
-                            isScrolling ? "space-x-12" : "space-x-20"
+                            activeTab !== null ? "space-x-12" : "space-x-20"
                         }`}
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
@@ -105,7 +105,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             className={`cursor-pointer transition-all duration-200 ease-out ${
                                 activeTab === "services"
                                     ? "text-xl font-bold"
-                                    : isScrolling
+                                    : activeTab !== null
                                     ? "text-base"
                                     : "text-lg"
                             }`}
@@ -123,7 +123,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             className={`cursor-pointer transition-all duration-200 ease-out ${
                                 activeTab === "projects"
                                     ? "text-xl font-bold"
-                                    : isScrolling
+                                    : activeTab !== null
                                     ? "text-base"
                                     : "text-lg"
                             }`}
@@ -141,7 +141,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             className={`cursor-pointer transition-all duration-200 ease-out ${
                                 activeTab === "team"
                                     ? "text-xl font-bold"
-                                    : isScrolling
+                                    : activeTab !== null
                                     ? "text-base"
                                     : "text-lg"
                             }`}

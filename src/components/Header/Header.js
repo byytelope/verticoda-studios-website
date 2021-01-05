@@ -1,11 +1,10 @@
-import HeaderButton from "./HeaderButton";
-// import HeaderIcons from "./HeaderIcons";
+import CustomButton from "../CustomButton";
 import "../../styles/header.css";
 
 export default function Header() {
     return (
         <div className="mainHeader xl:h-screen z-30 flex flex-col xl:flex-row xl:px-24 2xl:px-36 px-12 pt-44 pb-24 my-auto">
-            <div className="w-full xl:pr-36">
+            <div className="w-full xl:pr-36 my-auto">
                 <p className="py-6 text-8xl md:text-7xl lg:text-6xl xl:text-6xl font-bold text-white tracking-wide leading-snug md:leading-snug lg:leading-snug xl:leading-snug text-shadow-md">
                     Marketing
                     <br />
@@ -18,12 +17,17 @@ export default function Header() {
                     customised marketing needs.
                 </p>
                 <div className="pt-10 pb-16 flex">
-                    <HeaderButton />
+                    <CustomButton
+                        textColor="rgba(255,255,255,1)"
+                        bgColor="rgba(255,255,255,0)"
+                        borderColor="rgba(255,255,255,0.2)"
+                        ringColor="white"
+                    >
+                        CALL US NOW
+                    </CustomButton>
                 </div>
             </div>
-            <div className="pt-24 xl:pt-16 w-full h-full pl-36">
-                {/* <HeaderIcons /> */}
-            </div>
+            <div className="pt-24 xl:pt-16 w-full h-full pl-36">{/* <HeaderIcons /> */}</div>
         </div>
     );
 }

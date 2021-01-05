@@ -9,7 +9,7 @@ export default function DropDownMenu({
         <div
             className={`${
                 menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            } flex-col text-4xl text-text tracking-widest leading-loose text-shadow-md space-y-16 py-24 transition duration-500 ease-out`}
+            } flex-col text-4xl font-medium text-text tracking-widest leading-loose text-shadow-md space-y-16 py-24 transition duration-500 ease-out`}
         >
             <div
                 className={`cursor-pointer border-b-2 ${
@@ -24,7 +24,7 @@ export default function DropDownMenu({
                     toggleMenuOpen(false);
                 }}
             >
-                OUR&nbsp;SERVICES
+                Our&nbsp;Services
             </div>
             <div
                 className={`cursor-pointer border-b-2 ${
@@ -39,7 +39,7 @@ export default function DropDownMenu({
                     toggleMenuOpen(false);
                 }}
             >
-                PROJECTS
+                Projects
             </div>
             <div
                 className={`cursor-pointer border-b-2 ${
@@ -54,7 +54,7 @@ export default function DropDownMenu({
                     toggleMenuOpen(false);
                 }}
             >
-                MEET&nbsp;THE&nbsp;TEAM
+                Meet&nbsp;The&nbsp;Team
             </div>
         </div>
     );

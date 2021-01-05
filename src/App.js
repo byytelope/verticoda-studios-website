@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar";
 import Services from "./components/Services";
 import Team from "./components/Team";
+import Projects from "./components/Projects";
 import theme from "./styles/theme";
 import "./App.css";
 
@@ -61,17 +62,17 @@ export default function App() {
                 </div>
                 <div className="xl:px-24 2xl:px-36 px-12">
                     <div ref={servicesRef}>
-                        <div ref={servicesInViewRef} className="border-b">
+                        <div ref={servicesInViewRef}>
                             <Services />
                         </div>
                     </div>
                     <div ref={projectsRef}>
-                        <div ref={projectsInViewRef} className="border-b">
-                            <Team />
+                        <div ref={projectsInViewRef}>
+                            <Projects />
                         </div>
                     </div>
                     <div ref={teamRef}>
-                        <div ref={teamInViewRef} className="border-b">
+                        <div ref={teamInViewRef}>
                             <Team />
                         </div>
                     </div>
