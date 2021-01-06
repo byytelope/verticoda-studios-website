@@ -11,7 +11,7 @@ const serviceData = [
 
 const ServiceCard = (props) => (
     <motion.div
-        className={`w-full h-64 flex shadow-lg hover:shadow-xl transition-shadow duration-400 rounded-xl ${
+        className={`w-full h-64 flex shadow-lg hover:shadow-xl transition-shadow duration-400 rounded-3xl ${
             props.wide ? "col-span-2" : ""
         }`}
         whileHover={{ scale: 1.05 }}
@@ -26,7 +26,7 @@ const ServiceCard = (props) => (
 export default function Services() {
     return (
         <div className="xl:h-screen flex flex-col">
-            <div className="pt-32 mb-2" />
+            <div className="pt-52 xl:pt-32 mb-2" />
             <div className="flex flex-col my-auto">
                 <p className="font-bold text-6xl tracking-wide xl:hidden pb-24 text-text">
                     Our Services

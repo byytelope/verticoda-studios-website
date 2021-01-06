@@ -28,6 +28,11 @@ const theme = createMuiTheme({
         fontFamily: "Poppins",
     },
     overrides: {
+        MuiIconButton: {
+            root: {
+                color: "#2E2E2E",
+            },
+        },
         MuiButton: {
             label: {
                 color: "rgba(0,0,0,0.5)",

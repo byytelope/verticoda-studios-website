@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Path = (props) => (
     <motion.path
         strokeWidth="2.5"
-        strokeLinecap="square"
+        strokeLinecap="round"
         {...props}
         style={{ transition: "stroke .25s ease-out" }}
     />

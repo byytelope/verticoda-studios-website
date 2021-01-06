@@ -13,6 +13,12 @@ module.exports = {
                 secondaryGreen: "#26DE81",
                 secondaryPurple: "#C261FF",
             },
+            transitionDuration: {
+                400: "400ms",
+                600: "600ms",
+                800: "800ms",
+                900: "900ms",
+            },
         },
     },
     variants: {
