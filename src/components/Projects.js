@@ -25,18 +25,6 @@ const projectData = [
         category: "Uniform Design",
         details: "Bla bla lorem ipsum nice shirt beautiful shirt",
     },
-    {
-        img: AEHUni,
-        title: "Addu Equatorial Hospital 4",
-        category: "Uniform Design",
-        details: "Bla bla lorem ipsum nice shirt beautiful shirt",
-    },
-    {
-        img: AEHUni,
-        title: "Addu Equatorial Hospital 5",
-        category: "Uniform Design",
-        details: "Bla bla lorem ipsum nice shirt beautiful shirt",
-    },
 ];
 
 export default function Projects() {
@@ -44,7 +32,7 @@ export default function Projects() {
 
     return (
         <div className="xl:h-screen flex flex-col">
-            <div className="pt-52 xl:pt-32 mb-2" />
+            <div className="pt-52 xl:pt-12 mb-2" />
             <div className="flex flex-col my-auto">
                 <div className="flex pb-24 justify-between">
                     <p className="font-bold text-6xl tracking-wide xl:hidden text-text">Projects</p>

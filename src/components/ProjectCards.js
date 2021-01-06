@@ -27,12 +27,13 @@ export default function ProjectCards({ projectData, activeCard, setActiveCard })
                 slideClassName="justify-center flex"
                 resistance
                 springConfig={{
-                    duration: "0.5s",
+                    duration: "1s",
                     easeFunction: "cubic-bezier(0.65, 0, 0.35, 1)",
                     delay: "0s",
                 }}
                 onChangeIndex={(index) => setActiveCard(index)}
                 autoplay
+                interval={4000}
             >
                 {projectData.map((project, i) => (
                     <motion.div
