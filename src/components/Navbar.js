@@ -73,7 +73,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
     return (
         <div>
             <motion.div
-                className={`fixed flex flex-col w-full z-50 transition-all duration-200 ease-out xl:px-24 2xl:px-36 px-12 md:py-2 2xl:py-4 ${
+                className={`fixed flex flex-col w-full z-50 transition-all duration-200 ease-out px-4 md:px-12 xl:px-24 2xl:px-36 md:py-2 2xl:py-4 ${
                     isScrolling || menuOpen ? "shadow-md" : ""
                 }`}
                 animate={navBgAnimation}
@@ -86,7 +86,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                 <div className="grid grid-cols-2 w-full">
                     <motion.div
                         className={
-                            "text-3xl md:text-2xl xl:text-xl items-center tracking-widest py-6 md:py-8 text-white text-shadow-md"
+                            "text-md md:text-xl lg:text-2xl items-center tracking-widest py-4 md:py-8 text-white text-shadow-md"
                         }
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
@@ -121,21 +121,21 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                         </motion.div>
                         <motion.div
                             className={`cursor-pointer transition-all duration-200 ease-out ${
-                                activeTab === "projects"
+                                activeTab === "clients"
                                     ? "text-xl font-bold"
                                     : activeTab !== null
                                     ? "text-base"
                                     : "text-lg"
                             }`}
                             onClick={() => {
-                                refs.projectsRef.current &&
+                                refs.clientsRef.current &&
                                     window.scrollTo({
                                         behavior: "smooth",
-                                        top: refs.projectsRef.current.offsetTop,
+                                        top: refs.clientsRef.current.offsetTop,
                                     });
                             }}
                         >
-                            PROJECTS
+                            CLIENTS
                         </motion.div>
                         <motion.div
                             className={`cursor-pointer transition-all duration-200 ease-out ${
@@ -167,7 +167,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             size="medium"
                             centerRipple={false}
                         >
-                            <div className="pl-1 pt-1 w-16 h-16 md:w-12 md:h-12">
+                            <div className="pl-1 pt-1 w-8 h-8 md:w-12 md:h-12">
                                 <MenuIcon stroke={isScrolling || menuOpen ? "#2E2E2E" : "white"} />
                             </div>
                         </IconButton>

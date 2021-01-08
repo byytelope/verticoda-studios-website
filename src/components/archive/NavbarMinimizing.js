@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import IconButton from "@material-ui/core/IconButton";
 
-import { MenuIcon } from "./MenuIcon";
-import DropDownMenu from "./DropDownMenu";
+import { MenuIcon } from "../MenuIcon";
+import DropDownMenu from "../DropDownMenu";
 
 export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
     const [isScrolling, setIsScrolling] = useState(false);
@@ -68,7 +68,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
         window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [navBgAnimation, navTextAnimation, menuOpen]);
+    }, [navBgAnimation, navTextAnimation, menuOpen, activeTab]);
 
     return (
         <div>
@@ -85,24 +85,35 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
             >
                 <div className="grid grid-cols-2 w-full">
                     <motion.div
-                        className={
-                            "text-3xl md:text-2xl xl:text-xl items-center tracking-widest py-6 md:py-8 text-white text-shadow-md"
-                        }
+                        className={`text-3xl md:text-2xl xl:text-xl items-center tracking-widest py-6 md:py-8 text-white text-shadow-md ${
+                            isScrolling ? "flex" : ""
+                        }`}
+                        layout
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
                     >
-                        <p className="font-bold">VERTICODA&nbsp;STUDIOS</p>
-                        <p>BY&nbsp;VERTICODA</p>
+                        <motion.p className="font-bold">
+                            {isScrolling ? "" : "VERTICODA "}STUDIOS
+                        </motion.p>
+                        <motion.p className={`${isScrolling ? "pl-4 text-base" : ""}`}>
+                            BY&nbsp;VERTICODA
+                        </motion.p>
                     </motion.div>
                     <motion.div
-                        className="items-center justify-end space-x-24 text-white tracking-wider font-medium text-shadow-md text-lg pr-16 xl:pr-0 hidden xl:flex"
+                        className={`items-center justify-end text-white tracking-widest font-medium text-shadow-md pr-16 xl:pr-0 hidden xl:flex ${
+                            isScrolling ? "space-x-12" : "space-x-20"
+                        }`}
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
                     >
-                        <div
-                            className={`cursor-pointer border-b-2 ${
-                                activeTab === "services" ? "border-current" : "border-transparent"
-                            } transition-all duration-200 ease-out`}
+                        <motion.div
+                            className={`cursor-pointer transition-all duration-200 ease-out ${
+                                activeTab === "services"
+                                    ? "text-xl font-bold"
+                                    : isScrolling
+                                    ? "text-base"
+                                    : "text-lg"
+                            }`}
                             onClick={() => {
                                 refs.servicesRef.current &&
                                     window.scrollTo({
@@ -112,25 +123,33 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             }}
                         >
                             OUR&nbsp;SERVICES
-                        </div>
-                        <div
-                            className={`cursor-pointer border-b-2 ${
-                                activeTab === "projects" ? "border-current" : "border-transparent"
-                            } transition-all duration-200 ease-out`}
+                        </motion.div>
+                        <motion.div
+                            className={`cursor-pointer transition-all duration-200 ease-out ${
+                                activeTab === "clients"
+                                    ? "text-xl font-bold"
+                                    : isScrolling
+                                    ? "text-base"
+                                    : "text-lg"
+                            }`}
                             onClick={() => {
-                                refs.projectsRef.current &&
+                                refs.clientsRef.current &&
                                     window.scrollTo({
                                         behavior: "smooth",
-                                        top: refs.projectsRef.current.offsetTop,
+                                        top: refs.clientsRef.current.offsetTop,
                                     });
                             }}
                         >
-                            PROJECTS
-                        </div>
-                        <div
-                            className={`cursor-pointer border-b-2 ${
-                                activeTab === "team" ? "border-current" : "border-transparent"
-                            } transition-all duration-200 ease-out`}
+                            CLIENTS
+                        </motion.div>
+                        <motion.div
+                            className={`cursor-pointer transition-all duration-200 ease-out ${
+                                activeTab === "team"
+                                    ? "text-xl font-bold"
+                                    : isScrolling
+                                    ? "text-base"
+                                    : "text-lg"
+                            }`}
                             onClick={() => {
                                 refs.teamRef.current &&
                                     window.scrollTo({
@@ -140,7 +159,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             }}
                         >
                             MEET&nbsp;THE&nbsp;TEAM
-                        </div>
+                        </motion.div>
                     </motion.div>
                     <motion.div
                         className="flex xl:hidden justify-end -mr-2 my-auto"

@@ -45,8 +45,12 @@ const theme = createMuiTheme({
                     fontSize: "1.5rem",
                 },
                 [breakpoints.down("sm")]: {
-                    padding: "2.5rem",
-                    fontSize: "6rem",
+                    padding: "2rem",
+                    fontSize: "1.5rem",
+                },
+                [breakpoints.down("xs")]: {
+                    padding: "1rem",
+                    fontSize: "1rem",
                 },
             },
             root: {
@@ -56,7 +60,10 @@ const theme = createMuiTheme({
                     minHeight: "6rem",
                 },
                 [breakpoints.down("sm")]: {
-                    minHeight: "7rem",
+                    minHeight: "6rem",
+                },
+                [breakpoints.down("xs")]: {
+                    minHeight: "5rem",
                 },
             },
             outlined: {

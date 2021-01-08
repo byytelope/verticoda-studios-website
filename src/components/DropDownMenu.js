@@ -9,7 +9,7 @@ export default function DropDownMenu({
         <div
             className={`${
                 menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            } flex-col text-4xl font-medium text-text tracking-widest leading-loose text-shadow-md space-y-16 py-24 transition duration-500 ease-out`}
+            } flex-col text-2xl md:text-3xl font-medium text-text tracking-widest leading-loose text-shadow-md space-y-8 md:space-y-20 py-12 md:py-16 transition duration-500 ease-out`}
         >
             <div
                 className={`cursor-pointer border-b-2 ${
@@ -28,18 +28,18 @@ export default function DropDownMenu({
             </div>
             <div
                 className={`cursor-pointer border-b-2 ${
-                    activeTab === "projects" ? "border-current" : "border-transparent"
+                    activeTab === "clients" ? "border-current" : "border-transparent"
                 } transition-all duration-500 ease-out`}
                 onClick={() => {
-                    refs.projectsRef.current &&
+                    refs.clientsRef.current &&
                         window.scrollTo({
                             behavior: "smooth",
-                            top: refs.projectsRef.current.offsetTop,
+                            top: refs.clientsRef.current.offsetTop,
                         });
                     toggleMenuOpen(false);
                 }}
             >
-                Projects
+                Clients
             </div>
             <div
                 className={`cursor-pointer border-b-2 ${

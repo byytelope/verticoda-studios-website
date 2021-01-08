@@ -6,13 +6,13 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const ProjectCard = (props) => (
     <motion.div
-        className="rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-400 flex flex-col max-w-xl xl:max-w-md p-4 bg-white"
+        className="rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-400 flex flex-col max-w-lg xl:max-w-xs p-4 bg-white"
         whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", bounce: 0.6 }}
     >
         <img src={props.img} alt="CardImg" className="rounded-xl pointer-events-none border" />
         <div className="pt-8 pb-4 xl:pt-6 xl:pb-4 px-2">
-            <p className="font-medium text-4xl xl:text-2xl text-text">{props.title}</p>
+            <p className="font-medium text-4xl xl:text-2xl text-text pb-2">{props.title}</p>
             <p className="text-2xl xl:text-xl text-text">{props.category}</p>
             <p className="text-xl xl:text-base text-gray-600 font-light pt-4">{props.details}</p>
         </div>
@@ -24,7 +24,8 @@ export default function ProjectCards({ projectData, activeCard, setActiveCard })
         <div>
             <AutoPlaySwipeableViews
                 index={activeCard}
-                slideClassName="justify-center flex"
+                slideClassName="flex justify-center px-8 xl:px-0"
+                // style={{ paddingInline: "34%" }}
                 resistance
                 springConfig={{
                     duration: "1s",
@@ -35,13 +36,12 @@ export default function ProjectCards({ projectData, activeCard, setActiveCard })
                 autoplay
                 interval={4000}
             >
-                {projectData.map((project, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 100, x: 0 }}
-                        transition={{ type: "spring", bounce: 0.2 }}
-                        className="pb-12 pt-2"
-                    >
+                <motion.div
+                    initial={{ opacity: 100, x: 0 }}
+                    transition={{ type: "spring", bounce: 0.2 }}
+                    className="pb-12 pt-2 grid grid-cols-3 gap-x-36"
+                >
+                    {projectData.map((project, i) => (
                         <ProjectCard
                             key={i}
                             img={project.img}
@@ -49,8 +49,8 @@ export default function ProjectCards({ projectData, activeCard, setActiveCard })
                             details={project.details}
                             category={project.category}
                         />
-                    </motion.div>
-                ))}
+                    ))}
+                </motion.div>
             </AutoPlaySwipeableViews>
         </div>
     );

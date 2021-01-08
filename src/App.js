@@ -8,7 +8,7 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar";
 import Services from "./components/Services";
 import Team from "./components/Team";
-import Projects from "./components/Projects";
+import Clients from "./components/Clients";
 import theme from "./styles/theme";
 import "./App.css";
 
@@ -16,21 +16,21 @@ export default function App() {
     const [targetElement, setTargetElement] = useState(null);
     const [menuOpen, toggleMenuOpen] = useCycle(false, true);
     const [servicesInViewRef, servicesInView] = useInView({ threshold: 0.5 });
-    const [projectsInViewRef, projectsInView] = useInView({ threshold: 0.5 });
+    const [clientsInViewRef, clientsInView] = useInView({ threshold: 0.5 });
     const [teamInViewRef, teamInView] = useInView({ threshold: 0.5 });
 
-    const projectsRef = useRef(null);
+    const clientsRef = useRef(null);
     const servicesRef = useRef(null);
     const teamRef = useRef(null);
     const navRef = useRef(null);
 
-    const refs = { projectsRef, servicesRef, teamRef };
+    const refs = { clientsRef, servicesRef, teamRef };
 
     const activeTab = () => {
         if (servicesInView) {
             return "services";
-        } else if (projectsInView) {
-            return "projects";
+        } else if (clientsInView) {
+            return "clients";
         } else if (teamInView) {
             return "team";
         } else return null;
@@ -60,21 +60,19 @@ export default function App() {
                 <div>
                     <Header />
                 </div>
-                <div className="xl:px-24 2xl:px-36 px-12">
-                    <div ref={servicesRef}>
-                        <div ref={servicesInViewRef}>
-                            <Services />
-                        </div>
+                <div ref={servicesRef} className="px-4 md:px-12 xl:px-24 2xl:px-36">
+                    <div ref={servicesInViewRef}>
+                        <Services />
                     </div>
-                    <div ref={projectsRef}>
-                        <div ref={projectsInViewRef}>
-                            <Projects />
-                        </div>
+                </div>
+                <div ref={clientsRef} className="px-4 md:px-12 xl:px-24 2xl:px-36">
+                    <div ref={clientsInViewRef}>
+                        <Clients />
                     </div>
-                    <div ref={teamRef}>
-                        <div ref={teamInViewRef}>
-                            <Team />
-                        </div>
+                </div>
+                <div ref={teamRef} className="px-4 md:px-12 xl:px-24 2xl:px-36">
+                    <div ref={teamInViewRef}>
+                        <Team />
                     </div>
                 </div>
             </div>
