@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import IconButton from "@material-ui/core/IconButton";
 
-import { MenuIcon } from "../MenuIcon";
-import DropDownMenu from "../DropDownMenu";
+import { MenuIcon } from "./MenuIcon";
+import DropDownMenu from "./DropDownMenu";
 
 export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
     const [isScrolling, setIsScrolling] = useState(false);
@@ -15,13 +15,11 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
             initial: () => {
                 navBgAnimation.start({
                     backgroundColor: "rgba(255,255,255,0)",
-                    // backdropFilter: "blur(0px)",
                 });
             },
             final: () => {
                 navBgAnimation.start({
-                    backgroundColor: "rgba(200,200,200,0.1)",
-                    // backdropFilter: "blur(10px)",
+                    backgroundColor: "rgba(200,200,200,0.25)",
                 });
             },
         };
@@ -68,14 +66,14 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
         window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [navBgAnimation, navTextAnimation, menuOpen, activeTab]);
+    }, [navBgAnimation, navTextAnimation, menuOpen]);
 
     return (
         <div>
             <motion.div
-                className={`fixed flex flex-col w-full z-50 transition-all duration-200 ease-out xl:px-24 2xl:px-36 px-12 md:py-2 2xl:py-4 ${
-                    isScrolling || menuOpen ? "shadow-md" : ""
-                }`}
+                className={`fixed flex flex-col w-full z-50 transition-all duration-200 ease-out px-6 md:px-12 xl:px-24 2xl:px-36 ${
+                    isScrolling ? "py-0" : "py-2 lg:py-4"
+                } ${isScrolling || menuOpen ? "shadow-md" : ""}`}
                 animate={navBgAnimation}
                 transition={{ ease: "easeOut" }}
                 style={{
@@ -85,23 +83,18 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
             >
                 <div className="grid grid-cols-2 w-full">
                     <motion.div
-                        className={`text-3xl md:text-2xl xl:text-xl items-center tracking-widest py-6 md:py-8 text-white text-shadow-md ${
-                            isScrolling ? "flex" : ""
-                        }`}
-                        layout
+                        className={
+                            "text-md md:text-xl lg:text-2xl xl:text-xl items-center tracking-widest py-4 md:py-8 text-white text-shadow-md"
+                        }
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
                     >
-                        <motion.p className="font-bold">
-                            {isScrolling ? "" : "VERTICODA "}STUDIOS
-                        </motion.p>
-                        <motion.p className={`${isScrolling ? "pl-4 text-base" : ""}`}>
-                            BY&nbsp;VERTICODA
-                        </motion.p>
+                        <p className="font-bold">VERTICODA&nbsp;STUDIOS</p>
+                        <p>BY&nbsp;VERTICODA</p>
                     </motion.div>
                     <motion.div
                         className={`items-center justify-end text-white tracking-widest font-medium text-shadow-md pr-16 xl:pr-0 hidden xl:flex ${
-                            isScrolling ? "space-x-12" : "space-x-20"
+                            activeTab !== null ? "space-x-12" : "space-x-20"
                         }`}
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
@@ -110,7 +103,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             className={`cursor-pointer transition-all duration-200 ease-out ${
                                 activeTab === "services"
                                     ? "text-xl font-bold"
-                                    : isScrolling
+                                    : activeTab !== null
                                     ? "text-base"
                                     : "text-lg"
                             }`}
@@ -128,7 +121,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             className={`cursor-pointer transition-all duration-200 ease-out ${
                                 activeTab === "clients"
                                     ? "text-xl font-bold"
-                                    : isScrolling
+                                    : activeTab !== null
                                     ? "text-base"
                                     : "text-lg"
                             }`}
@@ -146,7 +139,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             className={`cursor-pointer transition-all duration-200 ease-out ${
                                 activeTab === "team"
                                     ? "text-xl font-bold"
-                                    : isScrolling
+                                    : activeTab !== null
                                     ? "text-base"
                                     : "text-lg"
                             }`}
@@ -172,7 +165,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             size="medium"
                             centerRipple={false}
                         >
-                            <div className="pl-1 pt-1 w-16 h-16 md:w-12 md:h-12">
+                            <div className="pl-1 pt-1 w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12">
                                 <MenuIcon stroke={isScrolling || menuOpen ? "#2E2E2E" : "white"} />
                             </div>
                         </IconButton>

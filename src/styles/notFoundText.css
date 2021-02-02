@@ -1,0 +1,17 @@
+.notFoundText {
+    background: linear-gradient(165deg, #c261ff, #26de81);
+    background-size: 250% 250%;
+    animation: notFoundTextAnim 15s ease infinite;
+}
+
+@keyframes notFoundTextAnim {
+    0% {
+        background-position: 10% 0%;
+    }
+    50% {
+        background-position: 90% 100%;
+    }
+    100% {
+        background-position: 10% 0%;
+    }
+}

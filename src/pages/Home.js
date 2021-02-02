@@ -56,17 +56,17 @@ export default function Home() {
             <div>
                 <Header />
             </div>
-            <div ref={servicesRef} className="px-4 md:px-12 xl:px-24 2xl:px-36">
+            <div ref={servicesRef} className="px-6 md:px-12 xl:px-24 2xl:px-36">
                 <div ref={servicesInViewRef}>
                     <Services />
                 </div>
             </div>
-            <div ref={clientsRef} className="px-4 md:px-12 xl:px-24 2xl:px-36">
+            <div ref={clientsRef} className="px-6 md:px-12 xl:px-24 2xl:px-36">
                 <div ref={clientsInViewRef}>
                     <Clients />
                 </div>
             </div>
-            <div ref={teamRef} className="px-4 md:px-12 xl:px-24 2xl:px-36">
+            <div ref={teamRef} className="px-6 md:px-12 xl:px-24 2xl:px-36">
                 <div ref={teamInViewRef}>
                     <Team />
                 </div>

@@ -22,7 +22,7 @@ export default function CustomButton(props) {
             className={`focus:outline-none h-12 focus:ring-4 ${
                 props.ringColor ? `ring-${props.ringColor}` : "ring-black"
             } ${props.ringColor === "black" ? "ring-opacity-5" : "ring-opacity-10"} shadow-md`}
-            href="tel:+9607821610"
+            href={props.href}
         >
             {props.children}
         </Button>

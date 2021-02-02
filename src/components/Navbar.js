@@ -4,6 +4,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 import { MenuIcon } from "./MenuIcon";
 import DropDownMenu from "./DropDownMenu";
+import Logo from "../assets/Logo_Vector.png";
 
 export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
     const [isScrolling, setIsScrolling] = useState(false);
@@ -15,13 +16,11 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
             initial: () => {
                 navBgAnimation.start({
                     backgroundColor: "rgba(255,255,255,0)",
-                    // backdropFilter: "blur(0px)",
                 });
             },
             final: () => {
                 navBgAnimation.start({
                     backgroundColor: "rgba(200,200,200,0.25)",
-                    // backdropFilter: "blur(10px)",
                 });
             },
         };
@@ -73,8 +72,8 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
     return (
         <div>
             <motion.div
-                className={`fixed flex flex-col w-full z-50 transition-all duration-200 ease-out px-4 md:px-12 xl:px-24 2xl:px-36 ${
-                    isScrolling ? "py-0" : "py-2 lg:py-4"
+                className={`fixed flex flex-col w-full z-50 transition-all duration-200 ease-out px-6 md:px-12 xl:px-24 2xl:px-36 ${
+                    isScrolling ? "py-2 md:py-4" : "py-6 md:py-10 lg:py-12"
                 } ${isScrolling || menuOpen ? "shadow-md" : ""}`}
                 animate={navBgAnimation}
                 transition={{ ease: "easeOut" }}
@@ -86,13 +85,37 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                 <div className="grid grid-cols-2 w-full">
                     <motion.div
                         className={
-                            "text-md md:text-xl lg:text-2xl xl:text-xl items-center tracking-widest py-4 md:py-8 text-white text-shadow-md"
+                            "flex text-md md:text-xl lg:text-2xl xl:text-xl items-center tracking-widest text-white text-shadow-md"
                         }
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
                     >
-                        <p className="font-bold">VERTICODA&nbsp;STUDIOS</p>
-                        <p>BY&nbsp;VERTICODA</p>
+                        <motion.img
+                            alt="Logo"
+                            src={Logo}
+                            className="w-12 md:w-16"
+                            initial={{ filter: "none" }}
+                            animate={
+                                isScrolling || menuOpen
+                                    ? {
+                                          filter:
+                                              "invert() drop-shadow(0 0.15rem 0.15rem rgba(0,0,0,0.2))",
+                                      }
+                                    : {
+                                          filter: "drop-shadow(0 0.15rem 0.15rem rgba(0,0,0,0.2))",
+                                      }
+                            }
+                            transition={{ ease: "easeOut" }}
+                        />
+                        <motion.div
+                            className="pl-4 md:pl-6"
+                            initial={{ x: 0, opacity: 100 }}
+                            animate={isScrolling ? (menuOpen ? {} : { x: -100, opacity: 0 }) : {}}
+                            transition={{ ease: "easeOut" }}
+                        >
+                            <p className="font-bold">VERTICODA&nbsp;STUDIOS</p>
+                            <p>BY&nbsp;VERTICODA</p>
+                        </motion.div>
                     </motion.div>
                     <motion.div
                         className={`items-center justify-end text-white tracking-widest font-medium text-shadow-md pr-16 xl:pr-0 hidden xl:flex ${
@@ -167,7 +190,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                             size="medium"
                             centerRipple={false}
                         >
-                            <div className="pl-1 pt-1 w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12">
+                            <div className="pl-1 pt-1 w-10 h-10 md:w-10 md:h-10 lg:w-12 lg:h-12">
                                 <MenuIcon stroke={isScrolling || menuOpen ? "#2E2E2E" : "white"} />
                             </div>
                         </IconButton>
