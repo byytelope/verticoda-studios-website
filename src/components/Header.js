@@ -24,7 +24,6 @@ export default function Header({ footerRef }) {
                         bgColor="rgba(255,255,255,0)"
                         borderColor="rgba(255,255,255,0.2)"
                         ringColor="white"
-                        // href="tel:+9607821610"
                         onClick={() => {
                             footerRef.current &&
                                 window.scrollTo({
