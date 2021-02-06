@@ -27,7 +27,7 @@ export default function Services() {
         <div className="xl:h-screen flex flex-col">
             <div className="pt-24 md:pt-52 xl:pt-32 mb-2" />
             <div className="flex flex-col my-auto">
-                <p className="font-bold text-4xl md:text-6xl tracking-wide xl:hidden pb-16 md:pb-24 text-text">
+                <p className="font-bold text-3xl xs:text-4xl md:text-6xl tracking-wide xl:hidden pb-16 md:pb-24 text-text">
                     Our Services
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 grid-rows-2 md:gap-x-12 gap-y-12">

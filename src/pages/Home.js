@@ -3,11 +3,12 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { useCycle } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import Header from "../components/Header/Header";
+import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Services from "../components/Services";
 import Team from "../components/Team";
 import Clients from "../components/Clients";
+import Footer from "../components/Footer";
 
 export default function Home() {
     const [targetElement, setTargetElement] = useState(null);
@@ -20,6 +21,7 @@ export default function Home() {
     const servicesRef = useRef(null);
     const teamRef = useRef(null);
     const navRef = useRef(null);
+    const footerRef = useRef(null);
 
     const refs = { clientsRef, servicesRef, teamRef };
 
@@ -54,7 +56,7 @@ export default function Home() {
                 />
             </div>
             <div>
-                <Header />
+                <Header footerRef={footerRef} />
             </div>
             <div ref={servicesRef} className="px-6 md:px-12 xl:px-24 2xl:px-36">
                 <div ref={servicesInViewRef}>
@@ -70,6 +72,9 @@ export default function Home() {
                 <div ref={teamInViewRef}>
                     <Team />
                 </div>
+            </div>
+            <div ref={footerRef}>
+                <Footer />
             </div>
         </div>
     );

@@ -3,7 +3,8 @@ import { unstable_createMuiStrictModeTheme as createMuiTheme } from "@material-u
 
 const breakpoints = createBreakpoints({
     values: {
-        xs: 0,
+        xxs: 0,
+        xs: 375,
         sm: 640,
         md: 768,
         lg: 1024,
@@ -36,40 +37,51 @@ const theme = createMuiTheme({
             label: {
                 color: "rgba(0,0,0,0.5)",
                 opacity: "100%",
-                padding: "1.5rem",
-                fontSize: "1rem",
                 letterSpacing: "0.1rem",
-                [breakpoints.down("lg")]: {
-                    padding: "3rem",
-                    fontSize: "1.5rem",
+                [breakpoints.up("xxs")]: {
+                    padding: "0.6rem",
+                    fontSize: "0.75rem",
                 },
-                [breakpoints.down("md")]: {
-                    padding: "2rem",
-                    fontSize: "1.25rem",
+                [breakpoints.up("xs")]: {
+                    padding: "0.75rem",
+                    fontSize: "0.85rem",
                 },
-                [breakpoints.down("sm")]: {
+                [breakpoints.up("sm")]: {
                     padding: "1rem",
                     fontSize: "1rem",
                 },
-                [breakpoints.down("xs")]: {
-                    padding: "0.75rem",
-                    fontSize: "0.85rem",
+                [breakpoints.up("md")]: {
+                    padding: "2rem",
+                    fontSize: "1.25rem",
+                },
+                [breakpoints.up("lg")]: {
+                    padding: "3rem",
+                    fontSize: "1.5rem",
+                },
+                [breakpoints.up("xl")]: {
+                    padding: "1.5rem",
+                    fontSize: "1rem",
                 },
             },
             root: {
                 borderRadius: "0.75rem",
-                minHeight: "5rem",
-                [breakpoints.down("lg")]: {
-                    minHeight: "7rem",
+                [breakpoints.up("xxs")]: {
+                    minHeight: "3.75rem",
                 },
-                [breakpoints.down("md")]: {
-                    minHeight: "6rem",
+                [breakpoints.up("xs")]: {
+                    minHeight: "4.5rem",
                 },
-                [breakpoints.down("sm")]: {
+                [breakpoints.up("sm")]: {
                     minHeight: "5rem",
                 },
-                [breakpoints.down("xs")]: {
-                    minHeight: "4.5rem",
+                [breakpoints.up("md")]: {
+                    minHeight: "6rem",
+                },
+                [breakpoints.up("lg")]: {
+                    minHeight: "7rem",
+                },
+                [breakpoints.up("xl")]: {
+                    minHeight: "5rem",
                 },
             },
             outlined: {

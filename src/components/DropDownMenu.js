@@ -9,7 +9,7 @@ export default function DropDownMenu({
         <div
             className={`${
                 menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            } flex-col text-2xl md:text-3xl lg:text-4xl font-medium text-text tracking-widest leading-loose text-shadow-md space-y-8 md:space-y-20 lg:space-y-24 py-12 md:py-16 lg:py-20 transition duration-500 ease-out`}
+            } flex-col text-lg xs:text-2xl md:text-3xl lg:text-4xl font-medium text-text tracking-widest leading-loose text-shadow-md space-y-6 xs:space-y-12 md:space-y-20 lg:space-y-24 py-8 xs:py-12 md:py-16 lg:py-20 transition duration-500 ease-out`}
         >
             <div
                 className={`cursor-pointer border-b-2 ${
