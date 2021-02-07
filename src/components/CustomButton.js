@@ -1,14 +1,21 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
-export default function CustomButton(props) {
+export default function CustomButton({
+    textColor,
+    borderColor,
+    bgColor,
+    children,
+    ringColor,
+    ...props
+}) {
     const useStyles = makeStyles({
         label: {
-            color: props.textColor,
+            color: textColor,
         },
         root: {
-            borderColor: props.borderColor,
-            backgroundColor: props.bgColor,
+            borderColor: borderColor,
+            backgroundColor: bgColor,
         },
     });
 
@@ -18,13 +25,13 @@ export default function CustomButton(props) {
         <Button
             variant="outlined"
             size="large"
-            classes={props ? headerButtonStyles : null}
+            classes={textColor ? headerButtonStyles : null}
             className={`focus:outline-none h-12 focus:ring-4 ${
-                props.ringColor ? `ring-${props.ringColor}` : "ring-black"
-            } ${props.ringColor === "black" ? "ring-opacity-5" : "ring-opacity-10"} shadow-md`}
-            href={props.href}
+                ringColor ? `ring-${ringColor}` : "ring-black"
+            } ${ringColor === "black" ? "ring-opacity-5" : "ring-opacity-10"} shadow-md`}
+            {...props}
         >
-            {props.children}
+            {children}
         </Button>
     );
 }

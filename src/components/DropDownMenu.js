@@ -1,6 +1,6 @@
 export default function DropDownMenu({
     menuOpen,
-    toggleMenuOpen,
+    setMenuOpen,
     navTextAnimation,
     refs,
     activeTab,
@@ -21,7 +21,7 @@ export default function DropDownMenu({
                             behavior: "smooth",
                             top: refs.servicesRef.current.offsetTop,
                         });
-                    toggleMenuOpen(false);
+                        setMenuOpen(false);
                 }}
             >
                 Our&nbsp;Services
@@ -36,7 +36,7 @@ export default function DropDownMenu({
                             behavior: "smooth",
                             top: refs.clientsRef.current.offsetTop,
                         });
-                    toggleMenuOpen(false);
+                        setMenuOpen(false);
                 }}
             >
                 Clients
@@ -51,7 +51,7 @@ export default function DropDownMenu({
                             behavior: "smooth",
                             top: refs.teamRef.current.offsetTop,
                         });
-                    toggleMenuOpen(false);
+                        setMenuOpen(false);
                 }}
             >
                 Meet&nbsp;The&nbsp;Team

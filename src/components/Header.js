@@ -1,11 +1,20 @@
-import CustomButton from "./CustomButton";
+import { motion } from "framer-motion";
 
+import CustomButton from "./CustomButton";
 import headerImg from "../assets/yeo-feature-1.png";
-import "../styles/header.css";
 
 export default function Header({ footerRef }) {
     return (
-        <div className="mainHeader h-full xl:h-screen z-30 flex flex-col xl:flex-row px-6 md:px-12 xl:px-24 2xl:px-36 pt-16 xs:pt-24 md:pt-44 md:pb-24 my-auto">
+        <motion.div
+            className="h-full xl:h-screen z-30 flex flex-col xl:flex-row px-6 md:px-12 xl:px-24 2xl:px-36 pt-16 xs:pt-24 md:pt-44 md:pb-24 my-auto"
+            animate={{ backgroundColor: ["#c261ff", "#26de81"] }}
+            transition={{
+                ease: "easeOut",
+                duration: 30,
+                repeat: Infinity,
+                repeatType: "reverse",
+            }}
+        >
             <div className="w-full xl:pr-36 my-auto">
                 <p className="py-6 text-2.5xl xs:text-3.5xl md:text-6xl lg:text-7xl xl:text-6xl 2xl:text-7xl font-bold text-white tracking-wide leading-snug xs:leading-snug md:leading-snug lg:leading-snug xl:leading-snug 2xl:leading-snug text-shadow-md">
                     Marketing
@@ -43,6 +52,6 @@ export default function Header({ footerRef }) {
                     style={{ filter: "drop-shadow(0 0.5rem 0.35rem rgba(0,0,0,0.1))" }}
                 />
             </div>
-        </div>
+        </motion.div>
     );
 }

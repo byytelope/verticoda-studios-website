@@ -6,7 +6,7 @@ import { MenuIcon } from "./MenuIcon";
 import DropDownMenu from "./DropDownMenu";
 import { ReactComponent as Logo } from "../assets/Verticoda_Logo.svg";
 
-export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
+export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
     const [isScrolling, setIsScrolling] = useState(false);
     const navBgAnimation = useAnimation();
     const navTextAnimation = useAnimation();
@@ -95,18 +95,24 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                                     : "w-12 xs:w-16 md:w-20 text-white"
                             } transition-all duration-400 ease-out`}
                             style={{ filter: "drop-shadow(0 0.15rem 0.15rem rgba(0,0,0,0.2))" }}
-                            onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
+                            onClick={() => {
+                                setMenuOpen(false);
+                                window.scroll({ top: 0, behavior: "smooth" });
+                            }}
                         >
                             <Logo />
                         </div>
                         <div className="overflow-hidden w-full">
                             <motion.div
                                 className="pl-4 md:pl-6 z-30 text-xs xs:text-sm md:text-xl lg:text-2xl xl:text-xl"
-                                initial={{ x: 0, opacity: 100 }}
                                 animate={
-                                    isScrolling ? (menuOpen ? {} : { x: -250, opacity: 0 }) : {}
+                                    isScrolling
+                                        ? menuOpen
+                                            ? { x: 0, opacity: 100 }
+                                            : { x: -250, opacity: 0 }
+                                        : {}
                                 }
-                                transition={{ ease: "easeOut" }}
+                                transition={{ type: "tween", ease: "easeOut" }}
                             >
                                 <p className="font-bold">VERTICODA&nbsp;STUDIOS</p>
                                 <p>BY&nbsp;VERTICODA</p>
@@ -181,7 +187,7 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                         animate={menuOpen ? "open" : "closed"}
                     >
                         <IconButton
-                            onClick={() => toggleMenuOpen()}
+                            onClick={() => setMenuOpen(!menuOpen)}
                             className="justify-items-center focus:outline-none"
                             size="medium"
                             centerRipple={false}
@@ -201,14 +207,14 @@ export default function Navbar({ refs, activeTab, menuOpen, toggleMenuOpen }) {
                         activeTab={activeTab}
                         refs={refs}
                         menuOpen={menuOpen}
-                        toggleMenuOpen={toggleMenuOpen}
+                        setMenuOpen={setMenuOpen}
                         navTextAnimation={navTextAnimation}
                     />
                 </motion.div>
             </motion.div>
             <div
                 className={`h-full w-full fixed z-40 ${menuOpen ? "" : "pointer-events-none"}`}
-                onClick={() => toggleMenuOpen(false)}
+                onClick={() => setMenuOpen(false)}
             />
         </div>
     );

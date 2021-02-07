@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from "react";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { useCycle } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import Header from "../components/Header";
@@ -12,7 +11,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
     const [targetElement, setTargetElement] = useState(null);
-    const [menuOpen, toggleMenuOpen] = useCycle(false, true);
+    const [menuOpen, setMenuOpen] = useState(false);
     const [servicesInViewRef, servicesInView] = useInView({ threshold: 0.5 });
     const [clientsInViewRef, clientsInView] = useInView({ threshold: 0.5 });
     const [teamInViewRef, teamInView] = useInView({ threshold: 0.5 });
@@ -52,7 +51,7 @@ export default function Home() {
                     refs={refs}
                     activeTab={activeTab()}
                     menuOpen={menuOpen}
-                    toggleMenuOpen={toggleMenuOpen}
+                    setMenuOpen={setMenuOpen}
                 />
             </div>
             <div>
@@ -74,7 +73,9 @@ export default function Home() {
                 </div>
             </div>
             <div ref={footerRef}>
-                <Footer />
+                <div>
+                    <Footer />
+                </div>
             </div>
         </div>
     );
