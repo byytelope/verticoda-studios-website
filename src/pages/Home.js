@@ -23,6 +23,7 @@ export default function Home() {
     const footerRef = useRef(null);
 
     const refs = { clientsRef, servicesRef, teamRef };
+    const padding = "px-6 md:px-12 xl:px-24 2xl:px-36";
 
     const activeTab = () => {
         if (servicesInView) {
@@ -57,26 +58,26 @@ export default function Home() {
                 />
             </div>
             <div>
-                <Header footerRef={footerRef} />
+                <Header footerRef={footerRef} padding={padding} />
             </div>
-            <div ref={servicesRef} className="px-6 md:px-12 xl:px-24 2xl:px-36">
+            <div ref={servicesRef}>
                 <div ref={servicesInViewRef}>
-                    <Services />
+                    <Services padding={padding} />
                 </div>
             </div>
-            <div ref={clientsRef} className="px-6 md:px-12 xl:px-24 2xl:px-36">
+            <div ref={clientsRef}>
                 <div ref={clientsInViewRef}>
-                    <Clients />
+                    <Clients padding={padding} />
                 </div>
             </div>
-            <div ref={teamRef} className="px-6 md:px-12 xl:px-24 2xl:px-36">
+            <div ref={teamRef}>
                 <div ref={teamInViewRef}>
-                    <Team />
+                    <Team padding={padding} />
                 </div>
             </div>
             <div ref={footerRef}>
                 <div>
-                    <Footer />
+                    <Footer padding={padding} />
                 </div>
             </div>
         </div>

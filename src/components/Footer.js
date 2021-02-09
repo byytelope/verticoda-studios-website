@@ -13,9 +13,9 @@ import { MdEmail } from "react-icons/md";
 
 import CustomButton from "./CustomButton";
 
-export default function Footer() {
+export default function Footer({ padding }) {
     return (
-        <div className="flex flex-col justify-start py-4 bg-gray-500 bg-opacity-5 px-6 md:px-12 xl:px-24 2xl:px-36">
+        <div className={`flex flex-col justify-start py-4 bg-gray-500 bg-opacity-5 ${padding}`}>
             <div className="flex flex-col xl:flex-row xl:justify-between">
                 <p className="w-full text-text text-xl md:text-2xl font-bold tracking-wider py-4">
                     CONTACT US

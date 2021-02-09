@@ -27,7 +27,7 @@ export default function CustomButton({
             size="large"
             classes={textColor ? headerButtonStyles : null}
             className={`focus:outline-none h-12 focus:ring-4 ${
-                ringColor ? `ring-${ringColor}` : "ring-black"
+                ringColor ? `${ringColor}` : "ring-black"
             } ${ringColor === "black" ? "ring-opacity-5" : "ring-opacity-10"} shadow-md`}
             {...props}
         >

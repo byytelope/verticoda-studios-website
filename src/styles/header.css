@@ -1,8 +1,10 @@
 .mainHeader {
-    display: flex;
     background: linear-gradient(165deg, #c261ff, #26de81);
-    background-size: 250% 250%;
+    background-size: 300% 300%;
     animation: headerBgAnimation 15s ease infinite;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    perspective: 1000;
 }
 
 @keyframes headerBgAnimation {
