@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 import CustomButton from "./CustomButton";
-import headerImg from "../assets/yeo-feature-1.png";
+import headerImg from "../assets/yeo-feature-1.webp";
 
 export default function Header({ footerRef }) {
     return (

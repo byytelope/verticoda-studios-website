@@ -37,10 +37,12 @@ export default function Home() {
     useEffect(() => {
         setTargetElement(navRef.current);
 
-        if (menuOpen) {
-            disableBodyScroll(targetElement);
-        } else if (!menuOpen) {
-            enableBodyScroll(targetElement);
+        if (targetElement) {
+            if (menuOpen) {
+                disableBodyScroll(targetElement);
+            } else if (!menuOpen) {
+                enableBodyScroll(targetElement);
+            }
         }
     }, [menuOpen, targetElement]);
 

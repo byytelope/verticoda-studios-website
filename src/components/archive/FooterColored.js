@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-import CustomButton from "./CustomButton";
+import CustomButton from "../CustomButton";
 
 export default function Footer() {
     return (
@@ -20,7 +20,7 @@ export default function Footer() {
                 <p className="w-full text-text text-xl md:text-2xl font-bold tracking-wider py-4">
                     CONTACT US
                 </p>
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-y-4 xl:gap-x-16 justify-items-center xl:justify-items-end text-text pt-4 xl:pt-2 pb-8">
+                <div className="w-full grid grid-cols-3 md:grid-cols-6 gap-y-4 justify-items-center xl:justify-items-end text-text pt-4 xl:pt-2 pb-8">
                     <div>
                         <IconButton
                             className="focus:outline-none"
@@ -30,7 +30,7 @@ export default function Footer() {
                             }
                         >
                             <div className="text-3xl md:text-4xl xl:text-3xl">
-                                <FaFacebook />
+                                <FaFacebook color="#1877f2" />
                             </div>
                         </IconButton>
                     </div>
@@ -41,7 +41,7 @@ export default function Footer() {
                             onClick={() => window.open("https://m.me/VerticodaStudios/", "_blank")}
                         >
                             <div className="text-3xl md:text-4xl xl:text-3xl">
-                                <FaFacebookMessenger />
+                                <FaFacebookMessenger color="#0078FF" />
                             </div>
                         </IconButton>
                     </div>
@@ -54,7 +54,7 @@ export default function Footer() {
                             }
                         >
                             <div className="text-3xl md:text-4xl xl:text-3xl">
-                                <FaTwitter />
+                                <FaTwitter color="#1DA1F2" />
                             </div>
                         </IconButton>
                     </div>
@@ -67,7 +67,7 @@ export default function Footer() {
                             }
                         >
                             <div className="text-3xl md:text-4xl xl:text-3xl">
-                                <FaInstagram />
+                                <FaInstagram color="#df2aaf" />
                             </div>
                         </IconButton>
                     </div>
@@ -78,7 +78,7 @@ export default function Footer() {
                             onClick={() => window.open("https://wa.link/n4yk31/", "_blank")}
                         >
                             <div className="text-3xl md:text-4xl xl:text-3xl">
-                                <FaWhatsapp />
+                                <FaWhatsapp color="#4FCE5D" />
                             </div>
                         </IconButton>
                     </div>
@@ -89,7 +89,7 @@ export default function Footer() {
                             onClick={() => window.open("viber://chat?number=9607821610", "_blank")}
                         >
                             <div className="text-3xl md:text-4xl xl:text-3xl">
-                                <FaViber />
+                                <FaViber color="#665CAC" />
                             </div>
                         </IconButton>
                     </div>
@@ -108,7 +108,7 @@ export default function Footer() {
                                 repeatType: "reverse",
                             }}
                         >
-                            VERTICODA®
+                            VERTICODA
                         </motion.p>
                     </div>
                     <p className="text-sm md:text-base">Copyright © 2021</p>
@@ -144,20 +144,7 @@ export default function Footer() {
                     </CustomButton>
                 </div>
                 <div className="text-text xl:hidden flex flex-col pt-12">
-                    <div className="text-sm md:text-lg font-bold tracking-wider flex">
-                        A subsidary of&nbsp;
-                        <motion.p
-                            animate={{ color: ["#8D61FF", "#20BF6B"] }}
-                            transition={{
-                                ease: "easeOut",
-                                duration: 30,
-                                repeat: Infinity,
-                                repeatType: "reverse",
-                            }}
-                        >
-                            VERTICODA®
-                        </motion.p>
-                    </div>
+                    <p className="font-bold tracking-wider">A subsidary of VERTICODA</p>
                     <p className="text-sm md:text-base">Copyright © 2021</p>
                 </div>
             </div>
