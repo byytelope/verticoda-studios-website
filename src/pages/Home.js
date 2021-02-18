@@ -11,7 +11,11 @@ import Footer from "../components/Footer";
 
 export default function Home() {
     const [targetElement, setTargetElement] = useState(null);
+    const [activeTab, setActiveTab] = useState("");
     const [menuOpen, setMenuOpen] = useState(false);
+    const [servicesWasViewed, setServicesWasViewed] = useState(false);
+    const [clientsWasViewed, setClientsWasViewed] = useState(false);
+    const [teamWasViewed, setTeamWasViewed] = useState(false);
     const [servicesInViewRef, servicesInView] = useInView({ threshold: 0.5 });
     const [clientsInViewRef, clientsInView] = useInView({ threshold: 0.5 });
     const [teamInViewRef, teamInView] = useInView({ threshold: 0.5 });
@@ -25,16 +29,6 @@ export default function Home() {
     const refs = { clientsRef, servicesRef, teamRef };
     const padding = "px-6 md:px-12 xl:px-24 2xl:px-36";
 
-    const activeTab = () => {
-        if (servicesInView) {
-            return "services";
-        } else if (clientsInView) {
-            return "clients";
-        } else if (teamInView) {
-            return "team";
-        } else return null;
-    };
-
     useEffect(() => {
         setTargetElement(navRef.current);
 
@@ -45,14 +39,25 @@ export default function Home() {
                 enableBodyScroll(targetElement);
             }
         }
-    }, [menuOpen, targetElement]);
+
+        if (servicesInView) {
+            setActiveTab("services");
+            setServicesWasViewed(true);
+        } else if (clientsInView) {
+            setActiveTab("clients");
+            setClientsWasViewed(true);
+        } else if (teamInView) {
+            setActiveTab("team");
+            setTeamWasViewed(true);
+        } else setActiveTab("");
+    }, [menuOpen, targetElement, clientsInView, servicesInView, teamInView]);
 
     return (
         <div>
             <div ref={navRef}>
                 <Navbar
                     refs={refs}
-                    activeTab={activeTab()}
+                    activeTab={activeTab}
                     menuOpen={menuOpen}
                     setMenuOpen={setMenuOpen}
                 />
@@ -62,17 +67,25 @@ export default function Home() {
             </div>
             <div ref={servicesRef}>
                 <div ref={servicesInViewRef}>
-                    <Services padding={padding} />
+                    <Services
+                        padding={padding}
+                        inView={servicesInView}
+                        wasViewed={servicesWasViewed}
+                    />
                 </div>
             </div>
             <div ref={clientsRef}>
                 <div ref={clientsInViewRef}>
-                    <Clients padding={padding} />
+                    <Clients
+                        padding={padding}
+                        inView={clientsInView}
+                        wasViewed={clientsWasViewed}
+                    />
                 </div>
             </div>
             <div ref={teamRef}>
                 <div ref={teamInViewRef}>
-                    <Team padding={padding} />
+                    <Team padding={padding} inView={teamInView} wasViewed={teamWasViewed} />
                 </div>
             </div>
             <div ref={footerRef}>

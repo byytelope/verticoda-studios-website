@@ -1,15 +1,11 @@
-export default function DropDownMenu({
-    menuOpen,
-    setMenuOpen,
-    navTextAnimation,
-    refs,
-    activeTab,
-}) {
+import { motion } from "framer-motion";
+
+export default function DropDownMenu({ menuOpen, setMenuOpen, navTextAnimation, refs, activeTab }) {
     return (
-        <div
-            className={`${
-                menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-            } flex-col text-lg xs:text-2xl md:text-3xl lg:text-4xl font-medium text-text tracking-widest leading-loose text-shadow-md space-y-6 xs:space-y-12 md:space-y-20 lg:space-y-24 py-8 xs:py-12 md:py-16 lg:py-20 transition duration-500 ease-out`}
+        <motion.div
+            initial={{ opacity: 0, pointerEvents: "none" }}
+            animate={menuOpen ? { opacity: 1, pointerEvents: "auto" } : {}}
+            className="flex-col text-lg xs:text-2xl md:text-3xl lg:text-4xl font-medium text-text tracking-widest leading-loose text-shadow-md space-y-6 xs:space-y-12 md:space-y-20 lg:space-y-24 py-8 xs:py-12 md:py-16 lg:py-20"
         >
             <div
                 className={`pb-2 cursor-pointer border-b-2 ${
@@ -21,7 +17,7 @@ export default function DropDownMenu({
                             behavior: "smooth",
                             top: refs.servicesRef.current.offsetTop,
                         });
-                        setMenuOpen(false);
+                    setMenuOpen(false);
                 }}
             >
                 Our&nbsp;Services
@@ -36,7 +32,7 @@ export default function DropDownMenu({
                             behavior: "smooth",
                             top: refs.clientsRef.current.offsetTop,
                         });
-                        setMenuOpen(false);
+                    setMenuOpen(false);
                 }}
             >
                 Clients
@@ -51,11 +47,11 @@ export default function DropDownMenu({
                             behavior: "smooth",
                             top: refs.teamRef.current.offsetTop,
                         });
-                        setMenuOpen(false);
+                    setMenuOpen(false);
                 }}
             >
                 Meet&nbsp;The&nbsp;Team
             </div>
-        </div>
+        </motion.div>
     );
 }

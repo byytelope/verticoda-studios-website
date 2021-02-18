@@ -108,8 +108,8 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                                 animate={
                                     isScrolling
                                         ? menuOpen
-                                            ? { x: 0, opacity: 100 }
-                                            : { x: -250, opacity: 0 }
+                                            ? { x: 0, opacity: 1 }
+                                            : { x: -150, opacity: 0 }
                                         : {}
                                 }
                                 transition={{ type: "tween", ease: "easeOut" }}
