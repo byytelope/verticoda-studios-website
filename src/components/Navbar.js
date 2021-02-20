@@ -192,7 +192,7 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                             size="medium"
                             centerRipple={false}
                         >
-                            <div className="pl-1 pt-1 w-8 h-8 xs:w-10 xs:h-10 md:w-10 md:h-10 lg:w-12 lg:h-12">
+                            <div className="pl-1 pt-1 w-8 h-8 xs:w-10 xs:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14">
                                 <MenuIcon stroke={isScrolling || menuOpen ? "#2E2E2E" : "white"} />
                             </div>
                         </IconButton>

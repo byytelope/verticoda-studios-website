@@ -8,7 +8,7 @@ export default function NotFound() {
 
     return (
         <div className="flex flex-col items-center justify-around h-screen">
-            <div className="font-bold text-5xl text-center text-transparent bg-clip-text notFoundText">
+            <div className="font-bold text-5xl text-center text-transparent bg-clip-text notFoundText p-8">
                 THIS PAGE DO BE NOT FOUND DOE
             </div>
             <div onClick={() => history.push("/")}>

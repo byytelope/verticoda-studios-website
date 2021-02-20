@@ -9,7 +9,7 @@ export default function Header({ footerRef, padding }) {
 
     return (
         <div
-            className={`mainHeader h-full xl:h-screen z-30 flex flex-col xl:flex-row pt-16 xs:pt-24 md:pt-44 md:pb-24 my-auto ${padding}`}
+            className={`mainHeader h-full xl:h-screen z-30 flex flex-col xl:flex-row pt-24 xs:pt-32 md:pt-44 md:pb-24 my-auto ${padding}`}
         >
             <div className="w-full xl:pr-36 my-auto">
                 <div className="py-6 text-2.5xl xs:text-3.5xl md:text-6xl lg:text-7xl xl:text-6xl 2xl:text-7xl font-bold text-white tracking-wide leading-snug xs:leading-snug md:leading-snug lg:leading-snug xl:leading-snug 2xl:leading-snug text-shadow-md">

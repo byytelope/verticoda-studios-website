@@ -113,7 +113,7 @@ export default function Footer({ padding }) {
                     </div>
                     <p className="text-sm md:text-base">Copyright © 2021</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 xl:gap-y-0 md:gap-x-8 px-6 xs:px-8 xl:px-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 xl:gap-y-0 md:gap-x-8 px-6 xs:px-8 xl:px-0 xl:hidden">
                     <CustomButton
                         textColor="#2e2e2e"
                         borderColor="#2e2e2e33"
@@ -142,6 +142,20 @@ export default function Footer({ padding }) {
                             </div>
                         }
                     </CustomButton>
+                </div>
+                <div className="text-right hidden xl:flex flex-col">
+                    <p
+                        className="cursor-pointer"
+                        onClick={() => window.open("tel:+9607821610", "_self")}
+                    >
+                        (960)&nbsp;<b className="font-semibold">782-1610</b>
+                    </p>
+                    <p
+                        className="cursor-pointer"
+                        onClick={() => window.open("mailto:hello@verticoda.com", "_self")}
+                    >
+                        hello@<b className="font-semibold">verticoda.com</b>
+                    </p>
                 </div>
                 <div className="text-text xl:hidden flex flex-col pt-12">
                     <div className="text-sm md:text-lg font-bold tracking-wider flex">
