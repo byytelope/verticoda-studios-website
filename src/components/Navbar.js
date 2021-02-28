@@ -80,6 +80,7 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                 style={{
                     backdropFilter: isScrolling || menuOpen ? "blur(25px)" : "blur(0px)",
                     WebkitBackdropFilter: isScrolling || menuOpen ? "blur(25px)" : "blur(0px)",
+                    willChange: "transform, opacity",
                 }}
             >
                 <div className="flex w-full">

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import { serviceData } from "../assets/db";
 
 export default function Service({
@@ -9,5 +11,14 @@ export default function Service({
         return obj.link === serviceLink;
     });
 
-    return <div>{JSON.stringify(service)}</div>;
+    return (
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeOut", duration: 0.4 }}
+        >
+            {JSON.stringify(service)}
+        </motion.div>
+    );
 }

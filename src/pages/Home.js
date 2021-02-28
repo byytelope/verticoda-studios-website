@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { useInView } from "react-intersection-observer";
 
@@ -83,7 +84,12 @@ export default function Home() {
     }, [menuOpen, targetElement]);
 
     return (
-        <div>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: "easeOut", duration: 0.5 }}
+        >
             <div ref={navRef}>
                 <Navbar
                     refs={refs}
@@ -123,6 +129,6 @@ export default function Home() {
                     <Footer padding={padding} />
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

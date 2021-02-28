@@ -7,4 +7,28 @@ const serviceData = [
     { title: "Website Development & Design", link: "web-dev", wide: true, img: null },
 ];
 
-export { serviceData };
+const teamData = [
+    {
+        name: "Thakuru",
+        avatar: "thakuru.avatars.com",
+        email: "zaahy@verticoda.com",
+        position: "CEO",
+        about: "Big man.",
+    },
+    {
+        name: "Rushkova",
+        avatar: "rushkova.avatars.com",
+        email: "zaan@verticoda.com",
+        position: "CFO",
+        about: "Smaller big man.",
+    },
+    {
+        name: "Botter",
+        avatar: "botter.avatars.com",
+        email: "shadhaan@verticoda.com",
+        position: "Head of Web Development",
+        about: "Yes.",
+    },
+];
+
+export { serviceData, teamData };

@@ -103,7 +103,7 @@ export default function Footer({ padding }) {
                             animate={{ color: ["#8D61FF", "#20BF6B"] }}
                             transition={{
                                 ease: "easeOut",
-                                duration: 30,
+                                duration: 5,
                                 repeat: Infinity,
                                 repeatType: "reverse",
                             }}
@@ -164,7 +164,7 @@ export default function Footer({ padding }) {
                             animate={{ color: ["#8D61FF", "#20BF6B"] }}
                             transition={{
                                 ease: "easeOut",
-                                duration: 30,
+                                duration: 5,
                                 repeat: Infinity,
                                 repeatType: "reverse",
                             }}
