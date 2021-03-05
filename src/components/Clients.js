@@ -22,12 +22,21 @@ export default function Projects({ padding, inView, wasViewed }) {
     };
 
     return (
-        <div className={`xl:h-screen flex flex-col ${padding}`}>
-            <div className="pt-20 xs:pt-28 md:pt-40 xl:pt-0 mb-2" />
-            <div className="flex flex-col my-auto">
-                <p className="font-bold text-3xl xs:text-4xl md:text-6xl tracking-wide xl:hidden pb-16 md:pb-24 text-text">
-                    Clients
-                </p>
+        <div className={`flex flex-col ${padding}`}>
+            <div className="flex flex-col my-auto space-y-24">
+                <div>
+                    <p className="font-bold text-3xl xs:text-4xl md:text-5xl tracking-wide md:leading-tight pb-16 md:pb-24 xl:pb-16 text-text text-center">
+                        Chosen by the best
+                    </p>
+                    <p className="md:text-lg text-textSecondary text-left md:text-center">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
                 <div
                     className={`grid justify-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ${
                         loading ? "gap-16" : "gap-x-64 md:gap-y-16"
@@ -36,15 +45,15 @@ export default function Projects({ padding, inView, wasViewed }) {
                     {clientLogos.map((client, i) => (
                         <motion.div
                             key={i}
-                            initial={{ y: -100, opacity: 0 }}
+                            initial={{ y: 100, opacity: 0 }}
                             animate={
                                 inView
                                     ? { y: 0, opacity: 1 }
                                     : wasViewed
                                     ? { y: 0, opacity: 1 }
-                                    : { y: -100, opacity: 0 }
+                                    : { y: 100, opacity: 0 }
                             }
-                            transition={{ delay: i * 0.075, type: "spring", bounce: 0.4 }}
+                            transition={{ delay: i * 0.1, type: "spring", bounce: 0.4 }}
                         >
                             <motion.div
                                 className={loading ? "block" : "hidden"}

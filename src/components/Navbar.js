@@ -78,8 +78,8 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                 animate={navBgAnimation}
                 transition={{ ease: "easeOut" }}
                 style={{
-                    backdropFilter: isScrolling || menuOpen ? "blur(25px)" : "blur(0px)",
-                    WebkitBackdropFilter: isScrolling || menuOpen ? "blur(25px)" : "blur(0px)",
+                    backdropFilter: isScrolling || menuOpen ? "blur(15px)" : "blur(0px)",
+                    WebkitBackdropFilter: isScrolling || menuOpen ? "blur(15px)" : "blur(0px)",
                     willChange: "transform, opacity",
                 }}
             >

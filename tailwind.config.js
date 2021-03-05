@@ -20,6 +20,7 @@ module.exports = {
             },
             colors: {
                 text: "#2E2E2E",
+                textSecondary: "#868686",
                 mainGreen: "#20BF6B",
                 mainPurple: "#8D61FF",
                 secondaryGreen: "#26DE81",

@@ -11,12 +11,16 @@ import Clients from "../components/Clients";
 import Footer from "../components/Footer";
 
 export default function Home() {
+    const paddingX = "px-6 md:px-12 xl:px-24 2xl:px-36 ";
+    const padding = `${paddingX} pt-36 xs:pt-40 md:pt-64 pb-12`;
+    const initTh = 0.5;
+
     const [targetElement, setTargetElement] = useState(null);
     const [activeTab, setActiveTab] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [servicesThreshold, setServicesThreshold] = useState(0.5);
-    const [clientsThreshold, setClientsThreshold] = useState(0.5);
-    const [teamThreshold, setTeamThreshold] = useState(0.5);
+    const [servicesThreshold, setServicesThreshold] = useState(initTh);
+    const [clientsThreshold, setClientsThreshold] = useState(initTh);
+    const [teamThreshold, setTeamThreshold] = useState(initTh);
     const [servicesHeight, setServicesHeight] = useState(0);
     const [clientsHeight, setClientsHeight] = useState(0);
     const [teamHeight, setTeamHeight] = useState(0);
@@ -34,7 +38,6 @@ export default function Home() {
     const footerRef = useRef(null);
 
     const refs = { clientsRef, servicesRef, teamRef };
-    const padding = "px-6 md:px-12 xl:px-24 2xl:px-36";
 
     useEffect(() => {
         setServicesHeight(servicesRef.current.getBoundingClientRect().height);
@@ -42,7 +45,6 @@ export default function Home() {
         setTeamHeight(teamRef.current.getBoundingClientRect().height);
 
         const winHeight = window.innerHeight;
-        const initTh = 0.4;
 
         if (servicesHeight > winHeight * initTh) {
             const newTh = ((winHeight * initTh) / servicesHeight) * initTh;
@@ -99,7 +101,7 @@ export default function Home() {
                 />
             </div>
             <div>
-                <Header footerRef={footerRef} padding={padding} />
+                <Header footerRef={footerRef} padding={paddingX} />
             </div>
             <div ref={servicesInViewRef}>
                 <div ref={servicesRef}>
@@ -126,7 +128,7 @@ export default function Home() {
             </div>
             <div>
                 <div ref={footerRef}>
-                    <Footer padding={padding} />
+                    <Footer padding={paddingX} />
                 </div>
             </div>
         </motion.div>
