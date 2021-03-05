@@ -1,4 +1,5 @@
-import { createElement } from "react";
+import { createElement, useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import * as cardIcons from "react-icons/fi";
@@ -20,14 +21,37 @@ const ServiceCard = ({ service, history }) => {
                 <p className="font-semibold text-xl md:text-2xl tracking-wide bg-clip-text text-text">
                     {service.title}
                 </p>
-                <p>{service.description}</p>
+                <p className="font-light">{service.description}</p>
             </div>
         </motion.div>
     );
 };
 
-export default function Services({ padding, inView, wasViewed }) {
+export default function Services({ padding }) {
+    const initTh = 0.1;
+
     const history = useHistory();
+    const [cardsHeight, setCardsHeight] = useState(0);
+    const [cardsWasViewed, setCardsWasViewed] = useState(false);
+    const [cardsThreshold, setCardsThreshold] = useState(initTh);
+    const [cardsRef, cardsInView] = useInView({ threshold: cardsThreshold });
+
+    useEffect(() => {
+        if (cardsInView) {
+            setCardsWasViewed(true);
+        }
+    }, [cardsInView]);
+
+    useEffect(() => {
+        setCardsHeight(cardsRef.current && cardsRef.current.getBoundingClientRect().height);
+
+        const winHeight = window.innerHeight;
+
+        if (cardsHeight > winHeight * initTh) {
+            const newTh = ((winHeight * initTh) / cardsHeight) * initTh;
+            setCardsThreshold(newTh);
+        }
+    }, [cardsHeight, cardsRef]);
 
     return (
         <div className={`flex flex-col ${padding}`}>
@@ -36,7 +60,7 @@ export default function Services({ padding, inView, wasViewed }) {
                     <p className="font-bold text-3xl xs:text-4xl md:text-5xl tracking-wide md:leading-tight pb-16 md:pb-24 xl:pb-16 text-text text-center">
                         What services do we offer?
                     </p>
-                    <p className="md:text-lg text-textSecondary text-left md:text-center">
+                    <p className="font-light md:text-lg text-textSecondary text-left md:text-center">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -45,15 +69,18 @@ export default function Services({ padding, inView, wasViewed }) {
                         non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-x-12 gap-y-12">
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-x-12 gap-y-12"
+                    ref={cardsRef}
+                >
                     {serviceData.map((service, i) => (
                         <motion.div
                             key={i}
                             initial={{ y: 100, opacity: 0 }}
                             animate={
-                                inView
+                                cardsInView
                                     ? { y: 0, opacity: 1 }
-                                    : wasViewed
+                                    : cardsWasViewed
                                     ? { y: 0, opacity: 1 }
                                     : { y: 100, opacity: 0 }
                             }

@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import Skeleton from "@material-ui/lab/Skeleton";
 
@@ -11,7 +12,7 @@ import TCHA from "../assets/client_logos/TCHA.png";
 
 const clientLogos = [AEH, AIMS, EV, TCHA, FCHABEYS, LONS];
 
-export default function Projects({ padding, inView, wasViewed }) {
+export default function Projects({ padding }) {
     const [loading, setLoading] = useState(true);
     const loadCount = useRef(0);
     const imageLoaded = () => {
@@ -21,6 +22,29 @@ export default function Projects({ padding, inView, wasViewed }) {
         }
     };
 
+    const initTh = 0.1;
+    const [cardsHeight, setCardsHeight] = useState(0);
+    const [cardsWasViewed, setCardsWasViewed] = useState(false);
+    const [cardsThreshold, setCardsThreshold] = useState(initTh);
+    const [cardsRef, cardsInView] = useInView({ threshold: cardsThreshold });
+
+    useEffect(() => {
+        if (cardsInView) {
+            setCardsWasViewed(true);
+        }
+    }, [cardsInView]);
+
+    useEffect(() => {
+        setCardsHeight(cardsRef.current && cardsRef.current.getBoundingClientRect().height);
+
+        const winHeight = window.innerHeight;
+
+        if (cardsHeight > winHeight * initTh) {
+            const newTh = ((winHeight * initTh) / cardsHeight) * initTh;
+            setCardsThreshold(newTh);
+        }
+    }, [cardsHeight, cardsRef]);
+
     return (
         <div className={`flex flex-col ${padding}`}>
             <div className="flex flex-col my-auto space-y-24">
@@ -28,7 +52,7 @@ export default function Projects({ padding, inView, wasViewed }) {
                     <p className="font-bold text-3xl xs:text-4xl md:text-5xl tracking-wide md:leading-tight pb-16 md:pb-24 xl:pb-16 text-text text-center">
                         Chosen by the best
                     </p>
-                    <p className="md:text-lg text-textSecondary text-left md:text-center">
+                    <p className="text-light md:text-lg text-textSecondary text-left md:text-center">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -39,17 +63,18 @@ export default function Projects({ padding, inView, wasViewed }) {
                 </div>
                 <div
                     className={`grid justify-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ${
-                        loading ? "gap-16" : "gap-x-64 md:gap-y-16"
-                    } xs:p-8 md:p-0`}
+                        loading ? "gap-16" : "gap-x-64 md:gap-x-32 xl:gap-x-64 md:gap-y-16"
+                    } xs:p-8 md:px-8`}
+                    ref={cardsRef}
                 >
                     {clientLogos.map((client, i) => (
                         <motion.div
                             key={i}
                             initial={{ y: 100, opacity: 0 }}
                             animate={
-                                inView
+                                cardsInView
                                     ? { y: 0, opacity: 1 }
-                                    : wasViewed
+                                    : cardsWasViewed
                                     ? { y: 0, opacity: 1 }
                                     : { y: 100, opacity: 0 }
                             }

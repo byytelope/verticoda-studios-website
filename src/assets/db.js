@@ -1,6 +1,6 @@
 const serviceData = [
     {
-        title: "Website Development & Design",
+        title: "Website Design & Development",
         description:
             "Lorem ipsum dolor sit amet bla bla bla heeheehoohoo funny text here just to fill the space.",
         link: "web-dev",

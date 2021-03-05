@@ -20,7 +20,7 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
             },
             final: () => {
                 navBgAnimation.start({
-                    backgroundColor: "rgba(200,200,200,0.25)",
+                    backgroundColor: "rgba(255,255,255, 0.5)",
                 });
             },
         };
@@ -78,9 +78,8 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                 animate={navBgAnimation}
                 transition={{ ease: "easeOut" }}
                 style={{
-                    backdropFilter: isScrolling || menuOpen ? "blur(15px)" : "blur(0px)",
-                    WebkitBackdropFilter: isScrolling || menuOpen ? "blur(15px)" : "blur(0px)",
-                    willChange: "transform, opacity",
+                    backdropFilter: isScrolling || menuOpen ? "blur(25px)" : "blur(0px)",
+                    WebkitBackdropFilter: isScrolling || menuOpen ? "blur(25px)" : "blur(0px)",
                 }}
             >
                 <div className="flex w-full">

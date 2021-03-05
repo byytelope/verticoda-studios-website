@@ -24,9 +24,6 @@ export default function Home() {
     const [servicesHeight, setServicesHeight] = useState(0);
     const [clientsHeight, setClientsHeight] = useState(0);
     const [teamHeight, setTeamHeight] = useState(0);
-    const [servicesWasViewed, setServicesWasViewed] = useState(false);
-    const [clientsWasViewed, setClientsWasViewed] = useState(false);
-    const [teamWasViewed, setTeamWasViewed] = useState(false);
     const [servicesInViewRef, servicesInView] = useInView({ threshold: servicesThreshold });
     const [clientsInViewRef, clientsInView] = useInView({ threshold: clientsThreshold });
     const [teamInViewRef, teamInView] = useInView({ threshold: teamThreshold });
@@ -62,13 +59,10 @@ export default function Home() {
 
     useEffect(() => {
         if (servicesInView) {
-            setServicesWasViewed(true);
             setActiveTab("services");
         } else if (clientsInView) {
-            setClientsWasViewed(true);
             setActiveTab("clients");
         } else if (teamInView) {
-            setTeamWasViewed(true);
             setActiveTab("team");
         } else setActiveTab(null);
     }, [clientsInView, teamInView, servicesInView]);
@@ -105,25 +99,17 @@ export default function Home() {
             </div>
             <div ref={servicesInViewRef}>
                 <div ref={servicesRef}>
-                    <Services
-                        padding={padding}
-                        inView={servicesInView}
-                        wasViewed={servicesWasViewed}
-                    />
+                    <Services padding={padding} />
                 </div>
             </div>
             <div ref={clientsInViewRef}>
                 <div ref={clientsRef}>
-                    <Clients
-                        padding={padding}
-                        inView={clientsInView}
-                        wasViewed={clientsWasViewed}
-                    />
+                    <Clients padding={padding} />
                 </div>
             </div>
             <div ref={teamInViewRef}>
                 <div ref={teamRef}>
-                    <Team padding={padding} inView={teamInView} wasViewed={teamWasViewed} />
+                    <Team padding={padding} />
                 </div>
             </div>
             <div>
