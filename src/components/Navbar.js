@@ -20,7 +20,7 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
             },
             final: () => {
                 navBgAnimation.start({
-                    backgroundColor: "rgba(255,255,255, 0.5)",
+                    backgroundColor: "rgba(200,200,200, 0.25)",
                 });
             },
         };
@@ -84,7 +84,7 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
             >
                 <div className="flex w-full">
                     <motion.div
-                        className={"flex items-center tracking-widest text-white text-shadow-md"}
+                        className="flex items-center tracking-widest text-white text-shadow-md"
                         animate={navTextAnimation}
                         transition={{ ease: "easeOut" }}
                     >

@@ -6,7 +6,7 @@ export default function Team({ padding }) {
                     <p className="font-bold text-3xl xs:text-4xl md:text-5xl tracking-wide md:leading-tight pb-16 md:pb-24 xl:pb-16 text-text text-center">
                         The best people
                     </p>
-                    <p className="text-light md:text-lg text-textSecondary text-left md:text-center">
+                    <p className="font-light md:text-lg text-textSecondary text-left md:text-center">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

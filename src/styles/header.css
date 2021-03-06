@@ -3,7 +3,7 @@
     background-size: 300% 300%;
     animation: headerBgAnimation 15s ease infinite;
     backface-visibility: hidden;
-    transform: translateZ(0);
+    transform: translate3d(0);
     perspective: 1000;
 }
 

@@ -1,3 +1,10 @@
+import AEH from "./client_logos/AEH.png";
+import AIMS from "./client_logos/AIMS.png";
+import EV from "./client_logos/EV.png";
+import FCHABEYS from "./client_logos/FCHABEYS.png";
+import LONS from "./client_logos/LONS.png";
+import TCHA from "./client_logos/TCHA.png";
+
 const serviceData = [
     {
         title: "Website Design & Development",
@@ -67,4 +74,43 @@ const teamData = [
     },
 ];
 
-export { serviceData, teamData };
+const clientData = [
+    {
+        name: "Addu Equatorial Hospital",
+        logo: AEH,
+        description:
+            "Lorem ipsum dolor sit amet bla bla bla heeheehoohoo funny text here just to fill the space.",
+    },
+    {
+        name: "AIMS Diagnostic Care Maldives",
+        logo: AIMS,
+        description:
+            "Lorem ipsum dolor sit amet bla bla bla heeheehoohoo funny text here just to fill the space.",
+    },
+    {
+        name: "Equatorial Village Maldives",
+        logo: EV,
+        description:
+            "Lorem ipsum dolor sit amet bla bla bla heeheehoohoo funny text here just to fill the space.",
+    },
+    {
+        name: "The Coffee House Addu",
+        logo: TCHA,
+        description:
+            "Lorem ipsum dolor sit amet bla bla bla heeheehoohoo funny text here just to fill the space.",
+    },
+    {
+        name: "Football Club Habeys",
+        logo: FCHABEYS,
+        description:
+            "Lorem ipsum dolor sit amet bla bla bla heeheehoohoo funny text here just to fill the space.",
+    },
+    {
+        name: "Football Club LONS",
+        logo: LONS,
+        description:
+            "Lorem ipsum dolor sit amet bla bla bla heeheehoohoo funny text here just to fill the space.",
+    },
+];
+
+export { serviceData, teamData, clientData };

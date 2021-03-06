@@ -3,21 +3,36 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import Skeleton from "@material-ui/lab/Skeleton";
 
-import AEH from "../assets/client_logos/AEH.png";
-import AIMS from "../assets/client_logos/AIMS.png";
-import EV from "../assets/client_logos/EV.png";
-import FCHABEYS from "../assets/client_logos/FCHABEYS.png";
-import LONS from "../assets/client_logos/LONS.png";
-import TCHA from "../assets/client_logos/TCHA.png";
+import { clientData } from "../assets/db";
 
-const clientLogos = [AEH, AIMS, EV, TCHA, FCHABEYS, LONS];
+const ClientCard = ({ client, imageLoaded, loading }) => (
+    <motion.div
+        className="flex flex-col w-full h-full bg-white rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-400 "
+        whileHover={{ scale: 1.03 }}
+        animate={loading ? { opacity: 0 } : { opacity: 1 }}
+        transition={{ type: "spring", bounce: 0.6 }}
+    >
+        <img
+            src={client.logo}
+            alt="ClientLogo"
+            className="rounded-xl h-48 w-48 mx-auto"
+            onLoad={imageLoaded}
+        />
+        <div className="flex flex-col m-auto p-8 space-y-2 text-text text-center">
+            <p className="font-semibold text-xl md:text-2xl tracking-wide bg-clip-text text-text">
+                {client.name}
+            </p>
+            <p className="font-light">{client.description}</p>
+        </div>
+    </motion.div>
+);
 
 export default function Projects({ padding }) {
     const [loading, setLoading] = useState(true);
     const loadCount = useRef(0);
     const imageLoaded = () => {
         loadCount.current += 1;
-        if (loadCount.current >= clientLogos.length) {
+        if (loadCount.current >= clientData.length) {
             setLoading(false);
         }
     };
@@ -52,7 +67,7 @@ export default function Projects({ padding }) {
                     <p className="font-bold text-3xl xs:text-4xl md:text-5xl tracking-wide md:leading-tight pb-16 md:pb-24 xl:pb-16 text-text text-center">
                         Chosen by the best
                     </p>
-                    <p className="text-light md:text-lg text-textSecondary text-left md:text-center">
+                    <p className="font-light md:text-lg text-textSecondary text-left md:text-center">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -62,12 +77,10 @@ export default function Projects({ padding }) {
                     </p>
                 </div>
                 <div
-                    className={`grid justify-center grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ${
-                        loading ? "gap-16" : "gap-x-64 md:gap-x-32 xl:gap-x-64 md:gap-y-16"
-                    } xs:p-8 md:px-8`}
+                    className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-x-12 gap-y-12"
                     ref={cardsRef}
                 >
-                    {clientLogos.map((client, i) => (
+                    {clientData.map((client, i) => (
                         <motion.div
                             key={i}
                             initial={{ y: 100, opacity: 0 }}
@@ -92,13 +105,11 @@ export default function Projects({ padding }) {
                                     variant="rect"
                                 />
                             </motion.div>
-                            <motion.img
-                                alt="client"
-                                src={client}
+                            <ClientCard
                                 className={`p-8 md:p-0 ${loading ? "hidden" : "block"}`}
-                                onLoad={imageLoaded}
-                                animate={loading ? { opacity: 0 } : { opacity: 1 }}
-                                transition={{ ease: "easeOut", duration: 0.5 }}
+                                imageLoaded={imageLoaded}
+                                client={client}
+                                loading={loading}
                             />
                         </motion.div>
                     ))}
