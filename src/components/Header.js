@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 import CustomButton from "./CustomButton";
-import HeroCards from "./HeroCards";
+// import HeroCards from "./HeroCards";
 import headerImg from "../assets/yeo-feature-1.webp";
 import "../styles/header.css";
 
