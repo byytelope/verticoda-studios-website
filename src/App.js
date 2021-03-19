@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Service from "./components/Service";
+import Service from "./pages/Service";
 import theme from "./styles/theme";
 import "./App.css";
 

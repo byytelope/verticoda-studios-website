@@ -91,8 +91,8 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                         <div
                             className={`z-40 cursor-pointer ${
                                 isScrolling || menuOpen
-                                    ? "w-10 xs:w-14 md:w-16 text-text"
-                                    : "w-12 xs:w-16 md:w-20 text-white"
+                                    ? "w-10 xs:w-14 md:w-16 lg:w-20 xl:w-16 text-text"
+                                    : "w-12 xs:w-16 md:w-20 lg:w-24 xl:w-20 text-white"
                             } transition-all duration-400 ease-out`}
                             style={{ filter: "drop-shadow(0 0.15rem 0.2rem rgba(0,0,0,0.2))" }}
                             onClick={() => {
@@ -142,7 +142,7 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                                     });
                             }}
                         >
-                            OUR&nbsp;SERVICES
+                            Our&nbsp;Services
                         </motion.div>
                         <motion.div
                             className={`cursor-pointer transition-all duration-200 ease-out ${
@@ -160,7 +160,7 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                                     });
                             }}
                         >
-                            CLIENTS
+                            Clients
                         </motion.div>
                         <motion.div
                             className={`cursor-pointer transition-all duration-200 ease-out ${
@@ -178,7 +178,7 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                                     });
                             }}
                         >
-                            MEET&nbsp;THE&nbsp;TEAM
+                            Meet&nbsp;The&nbsp;Team
                         </motion.div>
                     </motion.div>
                     <motion.div

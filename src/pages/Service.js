@@ -11,6 +11,8 @@ export default function Service({
         return obj.link === serviceLink;
     });
 
+    console.log(service);
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -18,7 +20,7 @@ export default function Service({
             exit={{ opacity: 0 }}
             transition={{ ease: "easeOut", duration: 0.4 }}
         >
-            {JSON.stringify(service)}
+            <div className="text-text">{service.title}</div>
         </motion.div>
     );
 }
