@@ -11,7 +11,7 @@ const ServiceCard = ({ service, history }) => {
 
     return (
         <motion.div
-            className="relative w-full h-full flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-400 rounded-3xl bg-white"
+            className="relative w-full h-full flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-[400] rounded-3xl bg-white"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", bounce: 0.6 }}
             onClick={() => history.push(`/services/${service.link}`)}

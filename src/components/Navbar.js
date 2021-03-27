@@ -93,7 +93,7 @@ export default function Navbar({ refs, activeTab, menuOpen, setMenuOpen }) {
                                 isScrolling || menuOpen
                                     ? "w-10 xs:w-14 md:w-16 lg:w-20 xl:w-16 text-text"
                                     : "w-12 xs:w-16 md:w-20 lg:w-24 xl:w-20 text-white"
-                            } transition-all duration-400 ease-out`}
+                            } transition-all duration-[400] ease-out`}
                             style={{ filter: "drop-shadow(0 0.15rem 0.2rem rgba(0,0,0,0.2))" }}
                             onClick={() => {
                                 setMenuOpen(false);

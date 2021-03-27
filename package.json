@@ -8,11 +8,11 @@
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
-        "autoprefixer": "^10.0.2",
+        "autoprefixer": "^10.2.5",
         "body-scroll-lock": "^3.1.5",
         "framer-motion": "^3.1.4",
-        "postcss": "^8.1.10",
-        "postcss-cli": "^8.3.0",
+        "postcss": "^8.2.8",
+        "postcss-cli": "^8.3.1",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-icons": "^4.1.0",
@@ -21,12 +21,13 @@
         "react-scripts": "4.0.1",
         "react-swipeable-views": "^0.13.9",
         "react-swipeable-views-utils": "^0.14.0-alpha.0",
-        "tailwindcss": "^2.0.2",
+        "tailwindcss": "^2.0.4",
         "tailwindcss-textshadow": "^2.1.3",
         "web-vitals": "^1.0.1"
     },
     "scripts": {
-        "build:css": "postcss src/index.css -o src/App.css",
+        "build:css": "TAILWIND_MODE=build postcss src/index.css -o src/App.css --verbose",
+        "watch:css": "TAILWIND_MODE=watch postcss src/index.css -o src/App.css --verbose -w",
         "start": "yarn build:css && react-scripts start",
         "build": "yarn build:css && react-scripts build",
         "test": "react-scripts test",
@@ -51,6 +52,7 @@
         ]
     },
     "devDependencies": {
+        "@tailwindcss/jit": "^0.1.5",
         "prettier": "^2.2.0"
     },
     "resolutions": {

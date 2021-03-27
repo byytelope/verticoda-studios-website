@@ -6,7 +6,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const ProjectCard = (props) => (
     <motion.div
-        className="rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-400 flex flex-col max-w-lg xl:max-w-xs p-4 bg-white"
+        className="rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-[400] flex flex-col max-w-lg xl:max-w-xs p-4 bg-white"
         whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", bounce: 0.6 }}
     >
